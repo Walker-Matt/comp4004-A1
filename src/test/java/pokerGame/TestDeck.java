@@ -13,4 +13,10 @@ public class TestDeck extends TestCase {
 		Deck d = new Deck();
 		assertTrue(d.getDeck() instanceof List<?>);
 	}
+	
+	//test size of Decks list of Cards
+	public void testDeckGetSize() {
+		Deck d = new Deck();
+		assertTrue(52, d.getSize()); //Should have 52 cards
+	}
 }
