@@ -1,12 +1,15 @@
 package pokerGame;
 
 public class Card {
+	protected String suit;
+	protected String rank;
 	
-	public String getRank() {
-		return "A";
+	public Card(String suit, String rank) {
+		this.suit = suit;
+		this.rank = rank;
 	}
+	
+	public String getSuit() { return suit; }
 
-	public String getSuit() {
-		return "S";
-	}
+	public String getRank() { return rank; }
 }
