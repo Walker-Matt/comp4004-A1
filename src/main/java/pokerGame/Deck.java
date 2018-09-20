@@ -16,7 +16,7 @@ public class Deck {
 			FileReader fileReader = new FileReader(fileName);
 			BufferedReader bufferedReader = new BufferedReader(fileReader);
 			while((line = bufferedReader.readLine()) != null) {
-                this.cards.add(new Card());
+                this.cards.add(new Card(Character.toString(line.charAt(0)), line.substring(1)));
             }
             bufferedReader.close();
 		}
