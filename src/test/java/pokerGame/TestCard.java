@@ -7,15 +7,17 @@ public class TestCard extends TestCase{
 		super(name);
 	}
 	
-	//test getter for a Cards rank
-	public void testCardGetRank() {
-		Card c = new Card();
-		assertTrue(c.getRank() instanceof String);
-	}
-	
 	//test getter for a Cards suit
 	public void testCardGetSuit() {
-		Card c = new Card();
+		Card c = new Card("S", "A");
 		assertTrue(c.getSuit() instanceof String);
+		assertEquals("S", c.getSuit());
+	}
+		
+	//test getter for a Cards rank
+	public void testCardGetRank() {
+		Card c = new Card("S", "A");
+		assertTrue(c.getRank() instanceof String);
+		assertEquals("A", c.getRank());
 	}
 }
