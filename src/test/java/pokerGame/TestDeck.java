@@ -17,6 +17,6 @@ public class TestDeck extends TestCase {
 	//test size of Decks list of Cards
 	public void testDeckGetSize() {
 		Deck d = new Deck();
-		assertTrue(52, d.getSize()); //Should have 52 cards
+		assertEquals(52, d.getSize()); //Should have 52 cards
 	}
 }
