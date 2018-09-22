@@ -19,4 +19,47 @@ public class TestDeck extends TestCase {
 		Deck d = new Deck();
 		assertEquals(52, d.getSize()); //Should have 52 cards
 	}
+	
+	//test draw method in Deck
+	//test draw method with input of 1
+	//test draw method returns List
+	//test draw method returns List Card types
+	public void testDeckDraw1() {
+		Deck d = new Deck();
+		assertEquals(1, d.draw(1).size());
+		assertEquals(51, d.getSize());
+		assertTrue(d.draw(1) instanceof List<?>);
+		assertTrue(d.draw(1).get(0) instanceof Card);
+	}
+
+	//test draw method with input of 0
+	public void testDeckDraw0() {
+		Deck d = new Deck();
+		List<Card> drawn = d.draw(0);
+		assertEquals(0, drawn.size());
+		assertEquals(52, d.getSize());
+	}
+	
+	//test draw method with input of -1
+	public void testDeckDrawNeg1() {
+		Deck d = new Deck();
+		assertEquals(0, d.draw(-1).size());
+		assertEquals(52, d.getSize());
+	}
+	
+	//test draw method with more than 52 at once
+	public void testDeckDraw53AtOnce() {
+		Deck d = new Deck();
+		assertEquals(52, d.draw(53).size());
+		assertEquals(0, d.getSize());
+	}
+	
+	//test draw method with more that 52 separately
+	public void testDeckDraw53Separate() {
+		Deck d = new Deck();
+		assertEquals(52, d.draw(52).size());
+		assertEquals(0, d.getSize());
+		assertEquals(0, d.draw(1).size());
+		assertEquals(0, d.getSize());
+	}
 }
