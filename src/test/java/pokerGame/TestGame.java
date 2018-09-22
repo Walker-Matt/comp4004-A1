@@ -11,22 +11,23 @@ public class TestGame extends TestCase {
 	//test the initial game setup values
 	public void testGameSetup() {
 		Game game = new Game();
-		game.main();
+		String[] args = new String[0];
+		Game.main(args);
 		
-		assertTrue(game.deck instanceof Deck);
+		assertTrue(Game.deck instanceof Deck);
 		
-		assertTrue(game.river instanceof List<?>);
-		assertTrue(game.river.get(0) instanceof Card);
-		assertEquals(3, game.river.size());
+		assertTrue(Game.river instanceof List<?>);
+		assertTrue(Game.river.get(0) instanceof Card);
+		assertEquals(3, Game.river.size());
 		
-		assertTrue(game.cardsToBeat instanceof List<?>);
-		assertTrue(game.cardsToBeat.get(0) instanceof Card);
-		assertEquals(2, game.cardsToBeat.size());
+		assertTrue(Game.cardsToBeat instanceof List<?>);
+		assertTrue(Game.cardsToBeat.get(0) instanceof Card);
+		assertEquals(2, Game.cardsToBeat.size());
 		
-		assertTrue(game.AIPcards instanceof List<?>);
-		assertTrue(game.AIPcards.get(0) instanceof Card);
-		assertEquals(2, game.AIPcards.size());
+		assertTrue(Game.AIPcards instanceof List<?>);
+		assertTrue(Game.AIPcards.get(0) instanceof Card);
+		assertEquals(2, Game.AIPcards.size());
 		
-		assertEquals(45, game.deck.size());
+		assertEquals(45, Game.deck.getSize());
 	}
 }
