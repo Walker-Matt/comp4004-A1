@@ -112,14 +112,14 @@ public class TestHands extends TestCase {
 	
 	//test check for a One Pair
 	//test check for not a Two Pair
-	public void testHandOnePair() {
-		List<Card> OnePair = new ArrayList<Card>();
-		OnePair.add(new Card("S", "4"));
-		OnePair.add(new Card("H", "4"));
-		OnePair.add(new Card("C", "9"));
-		OnePair.add(new Card("D", "7"));
-		OnePair.add(new Card("S", "3"));
-		assertTrue(Hands.isOnePair(OnePair));
-		assertFalse(Hands.isTwoPair(OnePair));
+	public void testHandPair() {
+		List<Card> Pair = new ArrayList<Card>();
+		Pair.add(new Card("S", "4"));
+		Pair.add(new Card("H", "4"));
+		Pair.add(new Card("C", "9"));
+		Pair.add(new Card("D", "7"));
+		Pair.add(new Card("S", "3"));
+		assertTrue(Hands.isPair(Pair));
+		assertFalse(Hands.isTwoPair(Pair));
 	}
 }

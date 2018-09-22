@@ -167,4 +167,23 @@ public class Hands {
 		}
 		return false;
 	}
+	
+	//Check for a Pair
+	protected static Boolean isPair(List<Card> hand) {
+		int pair = 1;
+		int changed = 0;
+		String rank = hand.get(0).getRank();
+		for(int i=1; i<hand.size(); i++) {
+			if(hand.get(i).getRank().equals(rank)) {
+				pair += 1;
+			} else {
+				rank = hand.get(i).getRank();
+				changed += 1;
+			}
+		}
+		if(pair == 2) {
+			return true;
+		}
+		return false;
+	}
 }
