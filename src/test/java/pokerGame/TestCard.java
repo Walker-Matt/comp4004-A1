@@ -20,4 +20,11 @@ public class TestCard extends TestCase{
 		assertTrue(c.getRank() instanceof String);
 		assertEquals("A", c.getRank());
 	}
+	
+	//test toString method in Card
+	public void testCardToString() {
+		Card c = new Card("S", "A");
+		String toString = "SA";
+		assertEquals(toString, c.toString());
+	}
 }
