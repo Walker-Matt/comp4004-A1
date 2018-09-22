@@ -27,4 +27,18 @@ public class TestCard extends TestCase{
 		String toString = "SA";
 		assertEquals(toString, c.toString());
 	}
+	
+	//test getOrder method in Card
+	public void testCardGetOrder() {
+		Card c = new Card("S", "2");
+		Card j = new Card("S", "J");
+		Card q = new Card("S", "Q");
+		Card k = new Card("S", "K");
+		Card a = new Card("S", "A");
+		assertEquals(1, c.getOrder());
+		assertEquals(10, j.getOrder());
+		assertEquals(11, q.getOrder());
+		assertEquals(12, k.getOrder());
+		assertEquals(13, a.getOrder());
+	}
 }
