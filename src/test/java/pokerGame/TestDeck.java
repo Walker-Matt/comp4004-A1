@@ -75,6 +75,13 @@ public class TestDeck extends TestCase {
 		d.shuffle();
 		after.addAll(d.getDeck());
 		assertEquals(before.size(), after.size());
-		assertTrue(!before.get(0).rank.equals(after.get(0).rank));
+		int diff = 0;
+		for(int i=0; i < d.getSize(); i++) {
+			if(before.get(i).getSuit() != after.get(i).getSuit()
+			|| before.get(i).getRank() != after.get(i).getRank()) {
+				diff += 1;
+			}
+		}
+		assertTrue(diff > 0);
 	}
 }
