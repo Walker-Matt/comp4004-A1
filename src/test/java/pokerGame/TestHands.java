@@ -31,4 +31,17 @@ public class TestHands extends TestCase {
 		assertTrue(Hands.isStraightFlush(straightFlush));
 		assertFalse(Hands.isRoyalFlush(straightFlush));
 	}
+	
+	//test check for a Four of a Kind
+	//test check for not a Straight Flush
+	public void testHandFourOfAKind() {
+		List<Card> FourOfAKind = new ArrayList<Card>();
+		FourOfAKind.add(new Card("S", "4"));
+		FourOfAKind.add(new Card("H", "4"));
+		FourOfAKind.add(new Card("C", "4"));
+		FourOfAKind.add(new Card("D", "4"));
+		FourOfAKind.add(new Card("S", "3"));
+		assertTrue(Hands.isFourOfAKind(FourOfAKind));
+		assertFalse(Hands.isStraightFlush(FourOfAKind));
+	}
 }
