@@ -41,4 +41,14 @@ public class Deck {
 		}
 		return drawnCards;
 	}
+	
+	public void shuffle(){
+		Random rand = new Random();
+		for (int i = cards.size() - 1; i > 0; i--) {
+			int random = rand.nextInt(i + 1);
+			Card card = cards.get(random);
+			cards.set(random, cards.get(i));
+			cards.set(i, card);
+		}
+	}
 }
