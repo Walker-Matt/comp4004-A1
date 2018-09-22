@@ -43,8 +43,8 @@ public class TestGame extends TestCase {
 		String AIPcards = "AIP cards: " + Game.AIPcards.get(0).getSuit() + Game.AIPcards.get(0).getRank() + " " +
 				Game.AIPcards.get(1).getSuit() + Game.AIPcards.get(1).getRank() + "\n";
 		
-		AssertEquals(river, Game.riverDisplay);
-		AssertEquals(cardsToBeat, Game.cardsToBeatDisplay);
-		AssertEquals(AIPcards, Game.AIPcardsDisplay);
+		assertEquals(river, Game.riverDisplay);
+		assertEquals(cardsToBeat, Game.cardsToBeatDisplay);
+		assertEquals(AIPcards, Game.AIPcardsDisplay);
 	}
 }
