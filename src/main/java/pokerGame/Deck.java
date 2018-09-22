@@ -30,4 +30,15 @@ public class Deck {
 	
 	public List<Card> getDeck() { return cards; }
 	public int getSize() { return cards.size(); }
+	
+	public List<Card> draw(int numberToDraw){
+		List<Card> drawnCards = new ArrayList<Card>();
+		for (int i = 0; i < numberToDraw; i++){
+			if(cards.size() > 0) {
+				drawnCards.add(cards.get(0));
+				cards.remove(0);
+			}
+		}
+		return drawnCards;
+	}
 }
