@@ -118,6 +118,26 @@ public class Hands {
 		return false;
 	}
 	
+	//Check for a Three of a Kind
+	protected static Boolean isThreeOfAKind(List<Card> hand) {
+		int same = 1;
+		String rank = hand.get(0).getRank();
+		for(int i=1; i<hand.size(); i++) {
+			if(hand.get(i).getRank().equals(rank)) {
+				same += 1;
+			} else {
+				rank = hand.get(i).getRank();
+				if(same != 3) {
+					same = 1;
+				}
+			}
+		}
+		if(same == 3) {
+			return true;
+		}
+		return false;
+	}
+	
 	//Check for a Two Pair
 	protected static Boolean isTwoPair(List<Card> hand) {
 		int pair1 = 1;
