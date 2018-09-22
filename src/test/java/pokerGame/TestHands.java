@@ -70,4 +70,17 @@ public class TestHands extends TestCase {
 		assertTrue(Hands.isFlush(Flush));
 		assertFalse(Hands.isFullHouse(Flush));
 	}
+	
+	//test check for a Straight
+	//test check for not a Flush
+	public void testHandStraight() {
+		List<Card> Straight = new ArrayList<Card>();
+		Straight.add(new Card("S", "4"));
+		Straight.add(new Card("H", "5"));
+		Straight.add(new Card("C", "6"));
+		Straight.add(new Card("D", "7"));
+		Straight.add(new Card("S", "8"));
+		assertTrue(Hands.isStraight(Straight));
+		assertFalse(Hands.isFlush(Straight));
+	}
 }
