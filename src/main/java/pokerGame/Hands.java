@@ -91,4 +91,15 @@ public class Hands {
 		}
 		return false;
 	}
+	
+	//Check for a Flush
+	protected static Boolean isFlush(List<Card> hand) {
+		String suit = hand.get(0).getSuit();
+		for(int i=1; i<hand.size(); i++) {
+			if(!hand.get(i).getSuit().equals(suit)) {
+				return false;
+			}
+		}
+		return true;
+	}
 }
