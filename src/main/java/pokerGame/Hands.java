@@ -64,4 +64,31 @@ public class Hands {
 		}
 		return false;
 	}
+	
+	//Check for a Full House
+	protected static Boolean isFullHouse(List<Card> hand) {
+		int same1 = 1;
+		int same2 = 1;
+		int changed = 0;
+		String rank = hand.get(0).getRank();
+		for(int i=1; i<hand.size(); i++) {
+			if(hand.get(i).getRank().equals(rank)) {
+				if(changed == 0) {
+					same1 += 1;
+				} else if(changed == 1) {
+					same2 += 1;
+				} else {
+					return false;
+				}
+			} else {
+				rank = hand.get(i).getRank();
+				changed += 1;
+			}
+		}
+		if((same1 == 2 && same2 == 3) ||
+			(same1 == 3 && same2 == 2)) {
+			return true;
+		}
+		return false;
+	}
 }
