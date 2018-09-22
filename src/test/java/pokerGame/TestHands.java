@@ -84,8 +84,21 @@ public class TestHands extends TestCase {
 		assertFalse(Hands.isFlush(Straight));
 	}
 	
-	//test check for a Two Pair
+	//test check for a Three of a kind
 	//test check for not a Straight
+	public void testHandThreeOfAKind() {
+		List<Card> ThreeOfAKind = new ArrayList<Card>();
+		ThreeOfAKind.add(new Card("S", "4"));
+		ThreeOfAKind.add(new Card("H", "4"));
+		ThreeOfAKind.add(new Card("C", "4"));
+		ThreeOfAKind.add(new Card("D", "7"));
+		ThreeOfAKind.add(new Card("S", "3"));
+		assertTrue(Hands.isThreeOfAKind(ThreeOfAKind));
+		assertFalse(Hands.isStraight(ThreeOfAKind));
+	}
+	
+	//test check for a Two Pair
+	//test check for not a Three of a kind
 	public void testHandTwoPair() {
 		List<Card> TwoPair = new ArrayList<Card>();
 		TwoPair.add(new Card("S", "4"));
@@ -94,6 +107,6 @@ public class TestHands extends TestCase {
 		TwoPair.add(new Card("D", "9"));
 		TwoPair.add(new Card("S", "3"));
 		assertTrue(Hands.isTwoPair(TwoPair));
-		assertFalse(Hands.isStraight(TwoPair));
+		assertFalse(Hands.isThreeOfAKind(TwoPair));
 	}
 }
