@@ -35,13 +35,13 @@ public class TestGame extends TestCase {
 		String[] args = new String[0];
 		Game.main(args);
 		
-		String river = "RIVER: " + Game.river.get(0).getSuit() + Game.river.get(0).getRank() + " " +
-				Game.river.get(1).getSuit() + Game.river.get(1).getRank() + " " +
-				Game.river.get(2).getSuit() + Game.river.get(2).getRank() + "\n";
-		String cardsToBeat = "Cards to beat: " + Game.cardsToBeat.get(0).getSuit() + Game.cardsToBeat.get(0).getRank() +
-				" " + Game.cardsToBeat.get(1).getSuit() + Game.cardsToBeat.get(1).getRank() + "\n";
-		String AIPcards = "AIP cards: " + Game.AIPcards.get(0).getSuit() + Game.AIPcards.get(0).getRank() + " " +
-				Game.AIPcards.get(1).getSuit() + Game.AIPcards.get(1).getRank() + "\n";
+		String river = "RIVER: " + Game.river.get(0).toString() + " " +
+				Game.river.get(1).toString() + " " +
+				Game.river.get(2).toString() + "\n";
+		String cardsToBeat = "Cards to beat: " + Game.cardsToBeat.get(0).toString() +
+				" " + Game.cardsToBeat.get(1).toString() + "\n";
+		String AIPcards = "AIP cards: " + Game.AIPcards.get(0).toString() + " " +
+				Game.AIPcards.get(1).toString()+ "\n";
 		
 		assertEquals(river, Game.riverDisplay);
 		assertEquals(cardsToBeat, Game.cardsToBeatDisplay);
