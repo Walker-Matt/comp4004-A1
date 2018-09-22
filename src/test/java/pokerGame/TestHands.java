@@ -44,4 +44,17 @@ public class TestHands extends TestCase {
 		assertTrue(Hands.isFourOfAKind(FourOfAKind));
 		assertFalse(Hands.isStraightFlush(FourOfAKind));
 	}
+	
+	//test check for a Full House
+	//test check for not a Four of a Kind
+	public void testHandFullHouse() {
+		List<Card> FullHouse = new ArrayList<Card>();
+		FullHouse.add(new Card("S", "4"));
+		FullHouse.add(new Card("H", "4"));
+		FullHouse.add(new Card("C", "4"));
+		FullHouse.add(new Card("D", "7"));
+		FullHouse.add(new Card("S", "7"));
+		assertTrue(Hands.isFullHouse(FullHouse));
+		assertFalse(Hands.isFourOfAKind(FullHouse));
+	}
 }
