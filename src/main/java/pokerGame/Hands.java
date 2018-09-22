@@ -102,4 +102,19 @@ public class Hands {
 		}
 		return true;
 	}
+	
+	//Check for a Straight
+	protected static Boolean isStraight(List<Card> hand) {
+		Boolean is = true;
+		int order = hand.get(0).getOrder();
+		for(int i=1; i<hand.size(); i++) {
+			if(hand.get(i).getOrder() != (order + i) ) {
+				is = false;
+			}
+		}
+		if(is) {
+			return true;
+		}
+		return false;
+	}
 }
