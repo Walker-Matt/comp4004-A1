@@ -24,7 +24,7 @@ public class TestDeck extends TestCase {
 	//test draw method with input of 1
 	//test draw method returns List
 	//test draw method returns List Card types
-	public void testDeckDraw1() {
+	public void testDeckDraw() {
 		Deck d = new Deck();
 		assertEquals(1, d.draw(1).size());
 		assertEquals(51, d.getSize());
@@ -54,6 +54,7 @@ public class TestDeck extends TestCase {
 		assertEquals(0, d.getSize());
 	}
 	
+	//test draw method with input of 52
 	//test draw method with more that 52 separately
 	public void testDeckDraw53Separate() {
 		Deck d = new Deck();
@@ -61,5 +62,19 @@ public class TestDeck extends TestCase {
 		assertEquals(0, d.getSize());
 		assertEquals(0, d.draw(1).size());
 		assertEquals(0, d.getSize());
+	}
+	
+	//test shuffle method in Deck
+	//test shuffle method doesn't change number of cards
+	//test shuffle method actually shuffles the cards
+	public void testDeckShuffle() {
+		Deck d = new Deck();
+		List<Card> before = new ArrayList<Card>();
+		List<Card> after = new ArrayList<Card>();
+		before.addAll(d.getDeck());
+		d.shuffle();
+		after.addAll(d.getDeck());
+		assertEquals(before.size(), after.size());
+		assertTrue(!before.get(0).rank.equals(after.get(0).rank));
 	}
 }
