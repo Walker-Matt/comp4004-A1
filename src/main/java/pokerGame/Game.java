@@ -24,13 +24,13 @@ public class Game {
 		AIPcards = new ArrayList<Card>();
 		AIPcards.addAll(deck.draw(2));
 		
-		riverDisplay = "RIVER: " + river.get(0).getSuit() + river.get(0).getRank() + " " +
-				river.get(1).getSuit() + river.get(1).getRank() + " " +
-				river.get(2).getSuit() + river.get(2).getRank() + "\n";
-		cardsToBeatDisplay = "Cards to beat: " + cardsToBeat.get(0).getSuit() + cardsToBeat.get(0).getRank() + 
-				" " + cardsToBeat.get(1).getSuit() + cardsToBeat.get(1).getRank() + "\n";
-		AIPcardsDisplay = "AIP cards: " + AIPcards.get(0).getSuit() + AIPcards.get(0).getRank() + " " +
-		AIPcards.get(1).getSuit() + AIPcards.get(1).getRank() + "\n";
+		riverDisplay = "RIVER: " + river.get(0).toString() + " " +
+				river.get(1).toString() + " " +
+				river.get(2).toString() + "\n";
+		cardsToBeatDisplay = "Cards to beat: " + cardsToBeat.get(0).toString() + 
+				" " + cardsToBeat.get(1).toString() + "\n";
+		AIPcardsDisplay = "AIP cards: " + AIPcards.get(0).toString() + " " +
+		AIPcards.get(1).toString() + "\n";
 		
 		display();
 	}
