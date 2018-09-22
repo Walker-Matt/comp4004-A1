@@ -83,4 +83,17 @@ public class TestHands extends TestCase {
 		assertTrue(Hands.isStraight(Straight));
 		assertFalse(Hands.isFlush(Straight));
 	}
+	
+	//test check for a Two Pair
+	//test check for not a Straight
+	public void testHandTwoPair() {
+		List<Card> TwoPair = new ArrayList<Card>();
+		TwoPair.add(new Card("S", "4"));
+		TwoPair.add(new Card("H", "4"));
+		TwoPair.add(new Card("C", "9"));
+		TwoPair.add(new Card("D", "9"));
+		TwoPair.add(new Card("S", "3"));
+		assertTrue(Hands.isTwoPair(TwoPair));
+		assertFalse(Hands.isStraight(TwoPair));
+	}
 }
