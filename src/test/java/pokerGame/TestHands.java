@@ -110,7 +110,7 @@ public class TestHands extends TestCase {
 		assertFalse(Hands.isThreeOfAKind(TwoPair));
 	}
 	
-	//test check for a One Pair
+	//test check for a Pair
 	//test check for not a Two Pair
 	public void testHandPair() {
 		List<Card> Pair = new ArrayList<Card>();
@@ -121,5 +121,18 @@ public class TestHands extends TestCase {
 		Pair.add(new Card("S", "3"));
 		assertTrue(Hands.isPair(Pair));
 		assertFalse(Hands.isTwoPair(Pair));
+	}
+	
+	//test check for a High Card
+	//test check for not a Pair
+	public void testHandHighCard() {
+		List<Card> HighCard = new ArrayList<Card>();
+		HighCard.add(new Card("S", "4"));
+		HighCard.add(new Card("H", "J"));
+		HighCard.add(new Card("C", "9"));
+		HighCard.add(new Card("D", "7"));
+		HighCard.add(new Card("S", "3"));
+		assertTrue(Hands.isHighCard(HighCard));
+		assertFalse(Hands.isPair(HighCard));
 	}
 }
