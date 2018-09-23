@@ -4,7 +4,7 @@ import java.util.*;
 
 public class Score extends Hands {
 
-	static public int score(List<Card> hand) {
+	protected static int score(List<Card> hand) {
 		int score = 0;
 		String type = type(hand);
 		switch(type) {
@@ -44,5 +44,15 @@ public class Score extends Hands {
 		}
 		
 		return score;
+	}
+	
+	protected static int highCardScore(List<Card> hand) {
+		Card highCard = hand.get(0);
+		for(Card c : hand) {
+			if(c.getOrder() > highCard.getOrder()) {
+				highCard = c;
+			}
+		}
+		return highCard.getOrder();
 	}
 }
