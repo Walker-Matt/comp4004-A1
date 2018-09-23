@@ -96,11 +96,14 @@ public class TestScore extends TestCase {
 	
 	//test cardScore method in Score
 	public void testCardScore() {
-		Deck d = new Deck();
-		for(int i=0; i < 13; i++) {
-			assertEquals(d.getDeck().get(i).getOrder(),
-				Score.cardScore(d.getDeck().get(i)));
-		}
+		List<Card> HighCard = new ArrayList<Card>();
+		HighCard.add(new Card("S", "4"));
+		HighCard.add(new Card("H", "J"));
+		HighCard.add(new Card("C", "9"));
+		HighCard.add(new Card("D", "7"));
+		HighCard.add(new Card("S", "3"));
+		
+		assertEquals(10, Score.highCardScore(HighCard));
 	}
 	
 	//test suitScore method in Score
