@@ -36,7 +36,7 @@ public class Score extends Hands {
 				score = 14;
 				break;
 			case "High Card":
-				score = 1;
+				score = highCardScore(hand);
 				break;
 			default:
 				score = -1;
