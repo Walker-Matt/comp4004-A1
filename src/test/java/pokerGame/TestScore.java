@@ -91,7 +91,7 @@ public class TestScore extends TestCase {
 		assertEquals(55, Score.score(ThreeOfAKind));
 		assertEquals(28, Score.score(TwoPair));
 		assertEquals(14, Score.score(Pair));
-		assertEquals(1, Score.score(HighCard));
+		assertEquals(10, Score.score(HighCard));
 	}
 	
 	//test cardScore method in Score
