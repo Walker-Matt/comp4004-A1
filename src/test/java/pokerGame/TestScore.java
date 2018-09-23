@@ -95,7 +95,7 @@ public class TestScore extends TestCase {
 	}
 	
 	//test cardScore method in Score
-	public void testCardScore() {
+	public void testHighCardScore() {
 		List<Card> HighCard = new ArrayList<Card>();
 		HighCard.add(new Card("S", "4"));
 		HighCard.add(new Card("H", "J"));
@@ -107,4 +107,10 @@ public class TestScore extends TestCase {
 	}
 	
 	//test suitScore method in Score
+	public void testSuitScore() {
+		assertEquals(4, Score.suitScore("S"));
+		assertEquals(3, Score.suitScore("H"));
+		assertEquals(2, Score.suitScore("D"));
+		assertEquals(1, Score.suitScore("C"));
+	}
 }
