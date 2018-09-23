@@ -3,6 +3,61 @@ package pokerGame;
 import java.util.*;
 
 public class Hands {
+	static public String type(List<Card> hand) {
+		//Royal Flush
+		if(isRoyalFlush(hand)) {
+			return "Royal Flush";
+		}
+		
+		//Straight Flush
+		if(isStraightFlush(hand)) {
+			return "Straight Flush";
+		}
+		
+		//Four of a Kind
+		if(isFourOfAKind(hand)) {
+			return "Four of a Kind";
+		}
+		
+		//Full House
+		if(isFullHouse(hand)) {
+			return "Full House";
+		}
+		
+		//Flush
+		if(isFlush(hand)) {
+			return "Flush";
+		}
+		
+		//Straight
+		if(isStraight(hand)) {
+			return "Straight";
+		}
+		
+		//Three of a Kind
+		if(isThreeOfAKind(hand)) {
+			return "Three of a Kind";
+		}
+		
+		//Two Pair
+		if(isTwoPair(hand)) {
+			return "Two Pair";
+		}
+		
+		//Pair
+		if(isPair(hand)) {
+			return "Pair";
+		}
+		
+		//High Card
+		if(isHighCard(hand)) {
+			return "High Card";
+		}
+		
+		//Shouldn't be possible
+		return "Nothing.";
+	}
+	
 	//Check for a Royal Flush
 	protected static Boolean isRoyalFlush(List<Card> hand) {
 		if(hand.get(0).getRank().equals("10") &&
