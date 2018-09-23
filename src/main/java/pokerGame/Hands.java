@@ -186,4 +186,10 @@ public class Hands {
 		}
 		return false;
 	}
+	
+	//Check for a High Card 
+	//(Obviously this will always return true)
+	protected static Boolean isHighCard(List<Card> hand) {
+		return true;
+	}
 }
