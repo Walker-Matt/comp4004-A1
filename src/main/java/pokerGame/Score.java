@@ -55,4 +55,16 @@ public class Score extends Hands {
 		}
 		return highCard.getOrder();
 	}
+	
+	protected static int suitScore(String suit) {
+		if(suit.equals("S")) {
+			return 4;
+		} else if(suit.equals("H")) {
+			return 3;
+		} else if(suit.equals("D")) {
+			return 2;
+		} else {
+			return 1;
+		}
+	}
 }
