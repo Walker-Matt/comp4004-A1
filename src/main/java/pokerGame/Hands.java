@@ -3,7 +3,18 @@ package pokerGame;
 import java.util.*;
 
 public class Hands {
+	private static class SortByOrder implements Comparator<Card> {
+		//used to sort by Cards order (Aces high)
+		public int compare(Card a, Card b) {
+			return a.order - b.order;
+		}
+	}
+	
 	static public String type(List<Card> hand) {
+		//sort hand to make identifying easier
+		//because of this, every hand check assumes a sorted hand
+		Collections.sort(hand, new SortByOrder());
+		
 		//Royal Flush
 		if(isRoyalFlush(hand)) {
 			return "Royal Flush";

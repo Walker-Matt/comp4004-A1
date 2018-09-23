@@ -102,11 +102,8 @@ public class TestHands extends TestCase {
 		royalFlush.add(new Card("H", "K"));
 		royalFlush.add(new Card("H", "A"));
 		assertTrue(Hands.isRoyalFlush(royalFlush));
-		assertFalse(Hands.isStraightFlush(royalFlush));
 		assertFalse(Hands.isFourOfAKind(royalFlush));
 		assertFalse(Hands.isFullHouse(royalFlush));
-		assertFalse(Hands.isFlush(royalFlush));
-		assertFalse(Hands.isStraight(royalFlush));
 		assertFalse(Hands.isThreeOfAKind(royalFlush));
 		assertFalse(Hands.isTwoPair(royalFlush));
 		assertFalse(Hands.isPair(royalFlush));
@@ -125,8 +122,6 @@ public class TestHands extends TestCase {
 		assertFalse(Hands.isRoyalFlush(straightFlush));
 		assertFalse(Hands.isFourOfAKind(straightFlush));
 		assertFalse(Hands.isFullHouse(straightFlush));
-		assertFalse(Hands.isFlush(straightFlush));
-		assertFalse(Hands.isStraight(straightFlush));
 		assertFalse(Hands.isThreeOfAKind(straightFlush));
 		assertFalse(Hands.isTwoPair(straightFlush));
 		assertFalse(Hands.isPair(straightFlush));
