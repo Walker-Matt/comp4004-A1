@@ -36,6 +36,16 @@ public class Game {
 		display();
 	}
 
+	public static String getWinner(List<Card> cardsToBeat, List<Card> AIPcards) {
+		if(Hands.type(cardsToBeat) > Hands.type(AIPcards)) {
+			return "AIP loses.";
+		} else if (Hands.type(cardsToBeat) < Hands.type(AIPcards)) {
+			return "AIP wins.";
+		} else {
+			return "Tie.";
+		}
+	}
+	
 	public static void display() {
 		System.out.print(cardsToBeatDisplay);
 		System.out.print(AIPcardsDisplay);

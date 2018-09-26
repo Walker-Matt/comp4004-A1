@@ -68,6 +68,6 @@ public class TestGame extends TestCase {
 		AIPcards.add(new Card("S", "6"));
 		
 		String winner = Game.getWinner(cardsToBeat, AIPcards);
-		assertEquals("AIP loses", winner);
+		assertEquals("AIP loses.", winner);
 	}
 }
