@@ -80,16 +80,16 @@ public class TestHands extends TestCase {
 		HighCard.add(new Card("D", "7"));
 		HighCard.add(new Card("S", "3"));
 		
-		assertEquals("Royal Flush", Hands.type(royalFlush));
-		assertEquals("Straight Flush", Hands.type(straightFlush));
-		assertEquals("Four of a Kind", Hands.type(FourOfAKind));
-		assertEquals("Full House", Hands.type(FullHouse));
-		assertEquals("Flush", Hands.type(Flush));
-		assertEquals("Straight", Hands.type(Straight));
-		assertEquals("Three of a Kind", Hands.type(ThreeOfAKind));
-		assertEquals("Two Pair", Hands.type(TwoPair));
-		assertEquals("Pair", Hands.type(Pair));
-		assertEquals("High Card", Hands.type(HighCard));
+		assertEquals(10, Hands.type(royalFlush));
+		assertEquals(9, Hands.type(straightFlush));
+		assertEquals(8, Hands.type(FourOfAKind));
+		assertEquals(7, Hands.type(FullHouse));
+		assertEquals(6, Hands.type(Flush));
+		assertEquals(5, Hands.type(Straight));
+		assertEquals(4, Hands.type(ThreeOfAKind));
+		assertEquals(3, Hands.type(TwoPair));
+		assertEquals(2, Hands.type(Pair));
+		assertEquals(1, Hands.type(HighCard));
 	}
 	
 	//test check for a Royal Flush
