@@ -20,6 +20,8 @@ public class Game {
 		AIPcards = new ArrayList<Card>();
 		AIPcards.addAll(deck.draw(5));
 		
+		winnerDisplay = getWinner() + "\n";
+		
 		cardsToBeatDisplay = "Cards to beat: " + 
 				cardsToBeat.get(0).toString() + " " + 
 				cardsToBeat.get(1).toString() + " " + 
@@ -33,8 +35,6 @@ public class Game {
 				AIPcards.get(2).toString() + " " +
 				AIPcards.get(3).toString() + " " +
 				AIPcards.get(4).toString() + "\n";
-		
-		winnerDisplay = getWinner() + "\n";
 		
 		display();
 	}

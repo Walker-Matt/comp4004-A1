@@ -44,7 +44,7 @@ public class TestGame extends TestCase {
 				Game.AIPcards.get(3).toString() + " " +
 				Game.AIPcards.get(4).toString()+ "\n";
 		
-		String winner = Game.getWinner();
+		String winner = Game.getWinner() + "\n";
 		
 		assertEquals(cardsToBeat, Game.cardsToBeatDisplay);
 		assertEquals(AIPcards, Game.AIPcardsDisplay);
