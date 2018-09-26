@@ -38,7 +38,7 @@ public class TestTie extends TestCase {
 		HighCard.add(new Card("D", "7"));
 		HighCard.add(new Card("S", "3"));
 		
-		assertEquals(10, Tie.highCard(HighCard));
+		assertEquals(10, Tie.highCard(HighCard).getOrder());
 	}
 	
 	//test suitScore() method
