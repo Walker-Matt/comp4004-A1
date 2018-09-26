@@ -48,6 +48,18 @@ public class TestTie extends TestCase {
 		assertEquals("AIP loses.", Tie.settleHighCard(cardsToBeat, AIPcards));
 	}
 	
+	//test pair() method
+	public void testTiePair() {
+		List<Card> pair = new ArrayList<Card>();
+		pair.add(new Card("S", "4"));
+		pair.add(new Card("H", "J"));
+		pair.add(new Card("C", "J"));
+		pair.add(new Card("D", "7"));
+		pair.add(new Card("S", "3"));
+		
+		assertEquals(10, Tie.pair(pair).getOrder());
+	}
+	
 	//test highCard() method
 	public void testTieHighCard() {
 		List<Card> HighCard = new ArrayList<Card>();
