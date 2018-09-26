@@ -3,15 +3,29 @@ package pokerGame;
 import java.util.List;
 
 public class Tie {
+	
+	protected static String settleHighCard(List<Card> cardsToBeat, List<Card> AIPcards) {
+		if(highCard(cardsToBeat).getOrder() > highCard(AIPcards).getOrder()) {
+			return "AIP loses.";
+		} else if (highCard(cardsToBeat).getOrder() < highCard(AIPcards).getOrder()) {
+			return "AIP wins.";
+		} else {
+			if(suitScore(highCard(cardsToBeat)) > suitScore(highCard(AIPcards))) {
+				return "AIP loses.";
+			} else {
+				return "AIP wins.";
+			}
+		}
+	}
 
-	protected static int highCard(List<Card> hand) {
+	protected static Card highCard(List<Card> hand) {
 		Card highCard = hand.get(0);
 		for(Card c : hand) {
 			if(c.getOrder() > highCard.getOrder()) {
 				highCard = c;
 			}
 		}
-		return highCard.getOrder();
+		return highCard;
 	}
 	
 	protected static int suitScore(Card card) {
