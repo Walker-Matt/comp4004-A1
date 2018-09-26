@@ -53,21 +53,13 @@ public class TestGame extends TestCase {
 		String[] args = new String[0];
 		Game.main(args);
 		
-		List<Card> cardsToBeat = new ArrayList<Card>();
-		cardsToBeat.add(new Card("S", "A"));
-		cardsToBeat.add(new Card("S", "K"));
-		cardsToBeat.add(new Card("S", "Q"));
-		cardsToBeat.add(new Card("S", "J"));
-		cardsToBeat.add(new Card("S", "10"));
-		
-		List<Card> AIPcards = new ArrayList<Card>();
-		AIPcards.add(new Card("S", "2"));
-		AIPcards.add(new Card("D", "3"));
-		AIPcards.add(new Card("H", "4"));
-		AIPcards.add(new Card("C", "5"));
-		AIPcards.add(new Card("S", "6"));
-		
-		String winner = Game.getWinner(cardsToBeat, AIPcards);
-		assertEquals("AIP loses.", winner);
+		String winner = Game.getWinner();
+		if(Hands.type(Game.cardsToBeat) > Hands.type(Game.AIPcards)) {
+			assertEquals("AIP loses.", winner);
+		} else if (Hands.type(Game.cardsToBeat) < Hands.type(Game.AIPcards)) {
+			assertEquals("AIP wins.", winner);
+		} else {
+			assertEquals("Tie.", winner);
+		}
 	}
 }
