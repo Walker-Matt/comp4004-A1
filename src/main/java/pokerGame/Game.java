@@ -36,7 +36,7 @@ public class Game {
 		display();
 	}
 
-	public static String getWinner(List<Card> cardsToBeat, List<Card> AIPcards) {
+	public static String getWinner() {
 		if(Hands.type(cardsToBeat) > Hands.type(AIPcards)) {
 			return "AIP loses.";
 		} else if (Hands.type(cardsToBeat) < Hands.type(AIPcards)) {
