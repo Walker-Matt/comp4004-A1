@@ -10,63 +10,63 @@ public class Hands {
 		}
 	}
 	
-	static public String type(List<Card> hand) {
+	static public int type(List<Card> hand) {
 		//sort hand to make identifying easier
 		//because of this, every hand check assumes a sorted hand
 		Collections.sort(hand, new SortByOrder());
 		
 		//Royal Flush
 		if(isRoyalFlush(hand)) {
-			return "Royal Flush";
+			return 10;
 		}
 		
 		//Straight Flush
 		if(isStraightFlush(hand)) {
-			return "Straight Flush";
+			return 9;
 		}
 		
 		//Four of a Kind
 		if(isFourOfAKind(hand)) {
-			return "Four of a Kind";
+			return 8;
 		}
 		
 		//Full House
 		if(isFullHouse(hand)) {
-			return "Full House";
+			return 7;
 		}
 		
 		//Flush
 		if(isFlush(hand)) {
-			return "Flush";
+			return 6;
 		}
 		
 		//Straight
 		if(isStraight(hand)) {
-			return "Straight";
+			return 5;
 		}
 		
 		//Three of a Kind
 		if(isThreeOfAKind(hand)) {
-			return "Three of a Kind";
+			return 4;
 		}
 		
 		//Two Pair
 		if(isTwoPair(hand)) {
-			return "Two Pair";
+			return 3;
 		}
 		
 		//Pair
 		if(isPair(hand)) {
-			return "Pair";
+			return 2;
 		}
 		
 		//High Card
 		if(isHighCard(hand)) {
-			return "High Card";
+			return 1;
 		}
 		
 		//Shouldn't be possible
-		return "Nothing.";
+		return 0;
 	}
 	
 	//Check for a Royal Flush
