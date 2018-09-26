@@ -29,6 +29,8 @@ public class TestTie extends TestCase {
 	
 	//test suitScore() method
 	public void testTieSuitScore() {
+		Card spade = new Card("S", "A");
 		
+		assertEquals(4, Tie.suitScore(spade));
 	}
 }
