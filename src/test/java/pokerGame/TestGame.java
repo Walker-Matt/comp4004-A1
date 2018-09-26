@@ -47,4 +47,27 @@ public class TestGame extends TestCase {
 		assertEquals(cardsToBeat, Game.cardsToBeatDisplay);
 		assertEquals(AIPcards, Game.AIPcardsDisplay);
 	}
+	
+	//test getWinner() method in Game
+	public void testGameGetWinner() {
+		String[] args = new String[0];
+		Game.main(args);
+		
+		List<Card> cardsToBeat = new ArrayList<Card>();
+		cardsToBeat.add(new Card("S", "A"));
+		cardsToBeat.add(new Card("S", "K"));
+		cardsToBeat.add(new Card("S", "Q"));
+		cardsToBeat.add(new Card("S", "J"));
+		cardsToBeat.add(new Card("S", "10"));
+		
+		List<Card> AIPcards = new ArrayList<Card>();
+		AIPcards.add(new Card("S", "2"));
+		AIPcards.add(new Card("D", "3"));
+		AIPcards.add(new Card("H", "4"));
+		AIPcards.add(new Card("C", "5"));
+		AIPcards.add(new Card("S", "6"));
+		
+		String winner = Game.getWinner(cardsToBeat, AIPcards);
+		assertEquals("AIP loses", winner);
+	}
 }
