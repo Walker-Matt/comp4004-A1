@@ -13,4 +13,16 @@ public class Tie {
 		}
 		return highCard.getOrder();
 	}
+	
+	protected static int suitScore(Card card) {
+		if(card.getSuit().equals("S")) {
+			return 4;
+		} else if(card.getSuit().equals("H")) {
+			return 3;
+		} else if(card.getSuit().equals("D")) {
+			return 2;
+		} else {
+			return 1;
+		}
+	}
 }
