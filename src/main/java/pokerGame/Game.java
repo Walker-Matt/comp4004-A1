@@ -8,6 +8,7 @@ public class Game {
 	static List<Card> AIPcards;
 	static String cardsToBeatDisplay;
 	static String AIPcardsDisplay;
+	static String winnerDisplay;
 	
 	public static void main(String args[]) {
 		deck = new Deck();
@@ -33,6 +34,8 @@ public class Game {
 				AIPcards.get(3).toString() + " " +
 				AIPcards.get(4).toString() + "\n";
 		
+		winnerDisplay = getWinner() + "\n";
+		
 		display();
 	}
 
@@ -49,5 +52,6 @@ public class Game {
 	public static void display() {
 		System.out.print(cardsToBeatDisplay);
 		System.out.print(AIPcardsDisplay);
+		System.out.print(winnerDisplay);
 	}
 }
