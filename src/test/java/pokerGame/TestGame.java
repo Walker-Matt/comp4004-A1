@@ -44,10 +44,13 @@ public class TestGame extends TestCase {
 				Game.AIPcards.get(3).toString() + " " +
 				Game.AIPcards.get(4).toString()+ "\n";
 		
+		String handTypes = Game.getHandTypes() + "\n";
+		
 		String winner = Game.getWinner() + "\n";
 		
 		assertEquals(cardsToBeat, Game.cardsToBeatDisplay);
 		assertEquals(AIPcards, Game.AIPcardsDisplay);
+		assertEquals(handTypes, Game.handTypes);
 		assertEquals(winner, Game.winnerDisplay);
 	}
 	
