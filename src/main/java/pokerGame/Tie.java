@@ -75,6 +75,10 @@ public class Tie {
 		}
 	}
 	
+	protected static Card triple(List<Card> hand) {
+		return hand.get(2);
+	}
+	
 	protected static Card twoPair(List<Card> hand) {
 		Card firstPair = hand.get(0);
 		for(int i=1; i < hand.size(); i++) {
