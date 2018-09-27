@@ -3,6 +3,32 @@ package pokerGame;
 import java.util.List;
 
 public class Tie {
+	protected static String settle(int type, List<Card> cardsToBeat, List<Card> AIPcards) {
+		switch(type) {
+		case 10:
+			return settleFlush(cardsToBeat, AIPcards);
+		case 9:
+			return settleHighCardSuit(cardsToBeat, AIPcards);
+		case 8:
+			return settleHighCard(cardsToBeat, AIPcards);
+		case 7:
+			return settleThreeOfAKind(cardsToBeat, AIPcards);
+		case 6:
+			return settleFlush(cardsToBeat, AIPcards);
+		case 5:
+			return settleHighCardSuit(cardsToBeat, AIPcards);
+		case 4:
+			return settleThreeOfAKind(cardsToBeat, AIPcards);
+		case 3:
+			return settleTwoPair(cardsToBeat, AIPcards);
+		case 2:
+			return settlePair(cardsToBeat, AIPcards);
+		case 1:
+			return settleHighCardSuit(cardsToBeat, AIPcards);
+		default:
+			return "TIE!?";
+		}
+	}
 	
 	protected static String settleFlush(List<Card> cardsToBeat, List<Card> AIPcards) {
 		Boolean sameHighCard = true;
