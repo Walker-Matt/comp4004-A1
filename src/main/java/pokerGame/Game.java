@@ -45,7 +45,7 @@ public class Game {
 		} else if (Hands.type(cardsToBeat) < Hands.type(AIPcards)) {
 			return "AIP wins.";
 		} else {
-			return "Tie.";
+			return Tie.settle(Hands.type(cardsToBeat), cardsToBeat, AIPcards);
 		}
 	}
 	
