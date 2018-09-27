@@ -48,6 +48,25 @@ public class TestTie extends TestCase {
 		assertEquals("AIP loses.", Tie.settleHighCard(cardsToBeat, AIPcards));
 	}
 	
+	//test settleThreeOfAKind method
+	public void testTieSettleThreeOfAKind() {
+		List<Card> cardsToBeat = new ArrayList<Card>();
+		cardsToBeat.add(new Card("S", "4"));
+		cardsToBeat.add(new Card("H", "J"));
+		cardsToBeat.add(new Card("C", "J"));
+		cardsToBeat.add(new Card("D", "J"));
+		cardsToBeat.add(new Card("S", "3"));
+		
+		List<Card> AIPcards = new ArrayList<Card>();
+		AIPcards.add(new Card("S", "4"));
+		AIPcards.add(new Card("H", "4"));
+		AIPcards.add(new Card("C", "4"));
+		AIPcards.add(new Card("D", "7"));
+		AIPcards.add(new Card("S", "3"));
+		
+		assertEquals("AIP loses.", Tie.settleThreeOfAKind(cardsToBeat, AIPcards));
+	}
+	
 	//test settleTwoPair method
 	public void testTieSettleTwoPair() {
 		List<Card> cardsToBeat = new ArrayList<Card>();
