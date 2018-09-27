@@ -4,6 +4,35 @@ import java.util.List;
 
 public class Tie {
 	
+	protected static String settleFlush(List<Card> cardsToBeat, List<Card> AIPcards) {
+		Boolean sameHighCard = true;
+		while(sameHighCard) {
+			if(highCard(cardsToBeat).getOrder() > highCard(AIPcards).getOrder()) {
+				sameHighCard = false;
+				return "AIP loses.";
+			} else if (highCard(cardsToBeat).getOrder() < highCard(AIPcards).getOrder()) {
+				sameHighCard = false;
+				return "AIP wins.";
+			} else {
+				if(cardsToBeat.size() > 1) {
+					cardsToBeat.remove(highCard(cardsToBeat));
+				} else {
+					break;
+				}
+				if(AIPcards.size() > 1) {
+					AIPcards.remove(highCard(AIPcards));
+				} else {
+					break;
+				}
+			}
+		}
+		if(suitScore(highCard(cardsToBeat)) > suitScore(highCard(AIPcards))) {
+			return "AIP loses.";
+		} else {
+			return "AIP wins.";
+		}
+	}
+	
 	protected static String settleTwoPair(List<Card> cardsToBeat, List<Card> AIPcards) {
 		if(twoPair(cardsToBeat).getOrder() > twoPair(AIPcards).getOrder()) {
 			return "AIP loses.";

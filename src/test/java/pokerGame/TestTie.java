@@ -21,7 +21,7 @@ public class TestTie extends TestCase {
 		
 		List<Card> AIPcards = new ArrayList<Card>();
 		AIPcards.add(new Card("H", "4"));
-		AIPcards.add(new Card("H", "5"));
+		AIPcards.add(new Card("H", "J"));
 		AIPcards.add(new Card("H", "9"));
 		AIPcards.add(new Card("H", "7"));
 		AIPcards.add(new Card("H", "3"));
