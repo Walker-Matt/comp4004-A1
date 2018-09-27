@@ -33,6 +33,14 @@ public class Tie {
 		}
 	}
 	
+	protected static String settleThreeOfAKind(List<Card> cardsToBeat, List<Card> AIPcards) {
+		if(highCard(cardsToBeat).getOrder() > highCard(AIPcards).getOrder()) {
+			return "AIP loses.";
+		} else {
+			return "AIP wins.";
+		}
+	}
+	
 	protected static String settleTwoPair(List<Card> cardsToBeat, List<Card> AIPcards) {
 		if(twoPair(cardsToBeat).getOrder() > twoPair(AIPcards).getOrder()) {
 			return "AIP loses.";
