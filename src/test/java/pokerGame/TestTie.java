@@ -10,6 +10,25 @@ public class TestTie extends TestCase {
 		super(name);
 	}
 	
+	//test settleFullHouse method
+	public void testTieSettleFullHouse() {
+		List<Card> cardsToBeat = new ArrayList<Card>();
+		cardsToBeat.add(new Card("S", "4"));
+		cardsToBeat.add(new Card("H", "J"));
+		cardsToBeat.add(new Card("C", "J"));
+		cardsToBeat.add(new Card("D", "J"));
+		cardsToBeat.add(new Card("S", "4"));
+		
+		List<Card> AIPcards = new ArrayList<Card>();
+		AIPcards.add(new Card("S", "4"));
+		AIPcards.add(new Card("H", "4"));
+		AIPcards.add(new Card("C", "4"));
+		AIPcards.add(new Card("D", "7"));
+		AIPcards.add(new Card("S", "7"));
+		
+		assertEquals("AIP loses.", Tie.settleFullHouse(cardsToBeat, AIPcards));
+	}
+	
 	//test settleFlush method
 	public void testTieSettleFlush() {
 		List<Card> cardsToBeat = new ArrayList<Card>();
