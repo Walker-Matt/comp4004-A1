@@ -26,7 +26,7 @@ public class TestTie extends TestCase {
 		AIPcards.add(new Card("D", "7"));
 		AIPcards.add(new Card("S", "7"));
 		
-		assertEquals("AIP loses.", Tie.settleFullHouse(cardsToBeat, AIPcards));
+		assertEquals("AIP loses.", Tie.settleThreeOfAKind(cardsToBeat, AIPcards));
 	}
 	
 	//test settleFlush method
