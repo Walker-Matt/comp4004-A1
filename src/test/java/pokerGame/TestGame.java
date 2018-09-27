@@ -62,7 +62,8 @@ public class TestGame extends TestCase {
 		} else if (Hands.type(Game.cardsToBeat) < Hands.type(Game.AIPcards)) {
 			assertEquals("AIP wins.", winner);
 		} else {
-			assertEquals("Tie.", winner);
+			String tie = Tie.settle(Hands.type(Game.cardsToBeat), Game.cardsToBeat, Game.AIPcards);
+			assertEquals(tie, winner);
 		}
 	}
 }
