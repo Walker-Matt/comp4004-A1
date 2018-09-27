@@ -17,6 +17,18 @@ public class Tie {
 			}
 		}
 	}
+	
+	protected static Card pair(List<Card> hand) {
+		Card pairCard = hand.get(0);
+		for(int i=1; i < hand.size(); i++) {
+			if(hand.get(i).getRank() == pairCard.getRank()) {
+				break;
+			} else {
+				pairCard = hand.get(i);
+			}
+		}
+		return pairCard;
+	}
 
 	protected static Card highCard(List<Card> hand) {
 		Card highCard = hand.get(0);
