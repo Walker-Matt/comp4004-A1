@@ -105,6 +105,18 @@ public class TestTie extends TestCase {
 		assertEquals("AIP loses.", Tie.settleHighCard(cardsToBeat, AIPcards));
 	}
 	
+	//test triple() method
+	public void testTieTriple() {
+		List<Card> triple = new ArrayList<Card>();
+		triple.add(new Card("S", "4"));
+		triple.add(new Card("H", "J"));
+		triple.add(new Card("C", "J"));
+		triple.add(new Card("D", "J"));
+		triple.add(new Card("S", "3"));
+		
+		assertEquals(10, Tie.triple(triple).getOrder());
+	}
+	
 	//test twoPair() method
 	public void testTieTwoPair() {
 		List<Card> twoPair = new ArrayList<Card>();
