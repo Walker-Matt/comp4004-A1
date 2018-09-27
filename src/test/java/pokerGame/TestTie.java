@@ -10,7 +10,7 @@ public class TestTie extends TestCase {
 		super(name);
 	}
 	
-	//test settleStraight method
+	//test settleStraight (can use highCard method)
 	public void testTieSettleStraight() {
 		List<Card> cardsToBeat = new ArrayList<Card>();
 		cardsToBeat.add(new Card("S", "4"));
@@ -26,7 +26,7 @@ public class TestTie extends TestCase {
 		AIPcards.add(new Card("D", "5"));
 		AIPcards.add(new Card("S", "6"));
 		
-		assertEquals("AIP loses.", Tie.settleStraight(cardsToBeat, AIPcards));
+		assertEquals("AIP loses.", Tie.settleHighCard(cardsToBeat, AIPcards));
 	}
 	
 	//test settleTwoPair method
