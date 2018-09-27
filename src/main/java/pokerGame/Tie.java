@@ -4,6 +4,20 @@ import java.util.List;
 
 public class Tie {
 	
+	protected static String settlePair(List<Card> cardsToBeat, List<Card> AIPcards) {
+		if(pair(cardsToBeat).getOrder() > pair(AIPcards).getOrder()) {
+			return "AIP loses.";
+		} else if (pair(cardsToBeat).getOrder() < pair(AIPcards).getOrder()) {
+			return "AIP wins.";
+		} else {
+			if(suitScore(pair(cardsToBeat)) > suitScore(pair(AIPcards))) {
+				return "AIP loses.";
+			} else {
+				return "AIP wins.";
+			}
+		}
+	}
+	
 	protected static String settleHighCard(List<Card> cardsToBeat, List<Card> AIPcards) {
 		if(highCard(cardsToBeat).getOrder() > highCard(AIPcards).getOrder()) {
 			return "AIP loses.";
