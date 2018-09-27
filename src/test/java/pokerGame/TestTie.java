@@ -10,6 +10,25 @@ public class TestTie extends TestCase {
 		super(name);
 	}
 	
+	//test settleStraight method
+	public void testTieSettleStraight() {
+		List<Card> cardsToBeat = new ArrayList<Card>();
+		cardsToBeat.add(new Card("S", "4"));
+		cardsToBeat.add(new Card("H", "5"));
+		cardsToBeat.add(new Card("C", "6"));
+		cardsToBeat.add(new Card("D", "7"));
+		cardsToBeat.add(new Card("S", "8"));
+		
+		List<Card> AIPcards = new ArrayList<Card>();
+		AIPcards.add(new Card("S", "2"));
+		AIPcards.add(new Card("H", "3"));
+		AIPcards.add(new Card("C", "4"));
+		AIPcards.add(new Card("D", "5"));
+		AIPcards.add(new Card("S", "6"));
+		
+		assertEquals("AIP loses.", Tie.settleStraight(cardsToBeat, AIPcards));
+	}
+	
 	//test settleTwoPair method
 	public void testTieSettleTwoPair() {
 		List<Card> cardsToBeat = new ArrayList<Card>();
