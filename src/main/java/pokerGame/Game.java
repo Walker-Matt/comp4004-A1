@@ -23,7 +23,7 @@ public class Game {
 		
 		winnerDisplay = getWinner() + "\n";
 		
-		handsDisplay = "AIP: " + getHandsDisplay() + "\n";
+		handsDisplay = getHandsDisplay() + "\n";
 		
 		cardsToBeatDisplay = "Cards to beat: " + 
 				cardsToBeat.get(0).toString() + " " + 
@@ -87,6 +87,7 @@ public class Game {
 	public static void display() {
 		System.out.print(cardsToBeatDisplay);
 		System.out.print(AIPcardsDisplay);
+		System.out.print(handsDisplay);
 		System.out.print(winnerDisplay);
 	}
 }
