@@ -69,7 +69,7 @@ public class Tie {
 		}
 	}
 	
-	protected static String settleHighCard(List<Card> cardsToBeat, List<Card> AIPcards) {
+	protected static String settleHighCardSuit(List<Card> cardsToBeat, List<Card> AIPcards) {
 		if(highCard(cardsToBeat).getOrder() > highCard(AIPcards).getOrder()) {
 			return "AIP loses.";
 		} else if (highCard(cardsToBeat).getOrder() < highCard(AIPcards).getOrder()) {
@@ -80,6 +80,14 @@ public class Tie {
 			} else {
 				return "AIP wins.";
 			}
+		}
+	}
+	
+	protected static String settleHighCard(List<Card> cardsToBeat, List<Card> AIPcards) {
+		if(highCard(cardsToBeat).getOrder() > highCard(AIPcards).getOrder()) {
+			return "AIP loses.";
+		} else {
+			return "AIP wins.";
 		}
 	}
 	
