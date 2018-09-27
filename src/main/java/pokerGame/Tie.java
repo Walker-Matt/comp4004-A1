@@ -91,6 +91,14 @@ public class Tie {
 		}
 	}
 	
+	protected static String settleSuit(List<Card> cardsToBeat, List<Card> AIPcards) {
+		if(suitScore(highCard(cardsToBeat)) > suitScore(highCard(AIPcards))) {
+			return "AIP loses.";
+		} else {
+			return "AIP wins.";
+		}
+	}
+	
 	protected static Card triple(List<Card> hand) {
 		return hand.get(2);
 	}
