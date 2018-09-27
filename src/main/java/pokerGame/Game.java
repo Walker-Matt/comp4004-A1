@@ -8,6 +8,7 @@ public class Game {
 	static List<Card> AIPcards;
 	static String cardsToBeatDisplay;
 	static String AIPcardsDisplay;
+	static String handsDisplay;
 	static String winnerDisplay;
 	
 	public static void main(String args[]) {
@@ -21,6 +22,8 @@ public class Game {
 		AIPcards.addAll(deck.draw(5));
 		
 		winnerDisplay = getWinner() + "\n";
+		
+		handsDisplay = "AIP: " + getHandsDisplay() + "\n";
 		
 		cardsToBeatDisplay = "Cards to beat: " + 
 				cardsToBeat.get(0).toString() + " " + 
@@ -37,6 +40,38 @@ public class Game {
 				AIPcards.get(4).toString() + "\n";
 		
 		display();
+	}
+	
+	public static String getHandsDisplay() {
+		return "AIP: " + getHandName(Hands.type(AIPcards)) + " vs. " +
+				"CTB: " + getHandName(Hands.type(cardsToBeat));
+	}
+	
+	public static String getHandName(int type) {
+		switch(type) {
+		case 10:
+			return "Royal Flush";
+		case 9:
+			return "Straight Flush";
+		case 8:
+			return "Four of a Kind";
+		case 7:
+			return "Full House";
+		case 6:
+			return "Flush";
+		case 5:
+			return "Straight";
+		case 4:
+			return "Three of a Kind";
+		case 3:
+			return "Two Pair";
+		case 2:
+			return "One Pair";
+		case 1:
+			return "High Card";
+		default:
+			return "High Card";
+		}
 	}
 
 	public static String getWinner() {
