@@ -22,4 +22,17 @@ public class TestAIP extends TestCase {
 		assertEquals(AIP.discard.get(1).getRank() == "4");
 		assertEquals(AIP.discard.get(2).getRank() == "7");
 	}
+	
+	//test the oneAway method in AIP
+	public void testAIPOneAway() {
+		List<Card> royalFlush = new ArrayList<Card>();
+		royalFlush.add(new Card("H", "10"));
+		royalFlush.add(new Card("C", "3"));
+		royalFlush.add(new Card("H", "Q"));
+		royalFlush.add(new Card("H", "K"));
+		royalFlush.add(new Card("H", "A"));
+		
+		assertTrue(AIP.oneAway(royalFlush));
+		assertEquals(AIP.removeIndex(0) == 1);
+	}
 }
