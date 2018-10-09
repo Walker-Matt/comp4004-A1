@@ -26,7 +26,7 @@ public class TestOnePairTie extends TestCase {
 		Pair2.add(new Card("D", "7"));
 		Pair2.add(new Card("S", "3"));
 		
-		assertEquals("AIP wins.", Tie.settlePair(Pair1, Pair2));
+		assertEquals("AIP wins.", Tie.settle(2, Pair1, Pair2));
 	}
 	
 	//tests two one pair hands with same pairs
@@ -45,6 +45,6 @@ public class TestOnePairTie extends TestCase {
 		Pair2.add(new Card("D", "7"));
 		Pair2.add(new Card("S", "3"));
 		
-		assertEquals("AIP wins.", Tie.settlePair(Pair1, Pair2));
+		assertEquals("AIP wins.", Tie.settle(2, Pair1, Pair2));
 	}
 }

@@ -26,6 +26,6 @@ public class TestHighCardTie extends TestCase {
 		HighCard2.add(new Card("D", "7"));
 		HighCard2.add(new Card("S", "3"));
 		
-		assertEquals("AIP wins.", Tie.settleHighCardSuit(HighCard1, HighCard2));
+		assertEquals("AIP wins.", Tie.settle(1, HighCard1, HighCard2));
 	}
 }

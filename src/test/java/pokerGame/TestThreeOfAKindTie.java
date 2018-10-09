@@ -26,6 +26,6 @@ public class TestThreeOfAKindTie extends TestCase {
 		ThreeOfAKind2.add(new Card("D", "7"));
 		ThreeOfAKind2.add(new Card("S", "3"));
 		
-		assertEquals("AIP wins.", Tie.settleThreeOfAKind(ThreeOfAKind1, ThreeOfAKind2));
+		assertEquals("AIP wins.", Tie.settle(4, ThreeOfAKind1, ThreeOfAKind2));
 	}
 }
