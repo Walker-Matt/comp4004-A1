@@ -1,6 +1,5 @@
 package pokerGame;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import junit.framework.*;
@@ -10,15 +9,12 @@ public class TestHighCard extends TestCase {
 		super(name);
 	}
 	
+	List<Deck> hands = ReadFile.read("tests/test_high_card.txt");
+	
 	//test average high card hand
 	//test method determining a high card hand
 	public void testHighCard() {
-		List<Card> HighCard = new ArrayList<Card>();
-		HighCard.add(new Card("S", "4"));
-		HighCard.add(new Card("H", "J"));
-		HighCard.add(new Card("C", "9"));
-		HighCard.add(new Card("D", "7"));
-		HighCard.add(new Card("S", "3"));
+		List<Card> HighCard = hands.get(0).getDeck();
 		assertTrue(Hands.isHighCard(HighCard));
 		assertFalse(Hands.isRoyalFlush(HighCard));
 		assertFalse(Hands.isStraightFlush(HighCard));
@@ -33,12 +29,7 @@ public class TestHighCard extends TestCase {
 	
 	//test input with lowest possible high card
 	public void testLowest() {
-		List<Card> HighCard = new ArrayList<Card>();
-		HighCard.add(new Card("S", "2"));
-		HighCard.add(new Card("H", "3"));
-		HighCard.add(new Card("C", "4"));
-		HighCard.add(new Card("D", "5"));
-		HighCard.add(new Card("S", "7"));
+		List<Card> HighCard = hands.get(1).getDeck();
 		assertTrue(Hands.isHighCard(HighCard));
 		assertFalse(Hands.isRoyalFlush(HighCard));
 		assertFalse(Hands.isStraightFlush(HighCard));
@@ -53,12 +44,7 @@ public class TestHighCard extends TestCase {
 	
 	//test input with highest possible high card
 	public void testHighest() {
-		List<Card> HighCard = new ArrayList<Card>();
-		HighCard.add(new Card("S", "4"));
-		HighCard.add(new Card("H", "J"));
-		HighCard.add(new Card("C", "9"));
-		HighCard.add(new Card("D", "7"));
-		HighCard.add(new Card("S", "A"));
+		List<Card> HighCard = hands.get(2).getDeck();
 		assertTrue(Hands.isHighCard(HighCard));
 		assertFalse(Hands.isRoyalFlush(HighCard));
 		assertFalse(Hands.isStraightFlush(HighCard));
