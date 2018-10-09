@@ -10,15 +10,12 @@ public class TestOnePair extends TestCase {
 		super(name);
 	}
 	
+	List<Deck> hands = ReadFile.read("tests/test_one_pair.txt");
+	
 	//test average one pair hand
 	//test method determining a one pair hand
 	public void testOnePair() {
-		List<Card> Pair = new ArrayList<Card>();
-		Pair.add(new Card("S", "4"));
-		Pair.add(new Card("H", "4"));
-		Pair.add(new Card("C", "9"));
-		Pair.add(new Card("D", "7"));
-		Pair.add(new Card("S", "3"));
+		List<Card> Pair = hands.get(0).getDeck();
 		assertTrue(Hands.isPair(Pair));
 		assertFalse(Hands.isRoyalFlush(Pair));
 		assertFalse(Hands.isStraightFlush(Pair));
@@ -32,12 +29,7 @@ public class TestOnePair extends TestCase {
 	
 	//test input with lowest possible one pair
 	public void testLowest() {
-		List<Card> Pair = new ArrayList<Card>();
-		Pair.add(new Card("S", "2"));
-		Pair.add(new Card("H", "2"));
-		Pair.add(new Card("C", "9"));
-		Pair.add(new Card("D", "7"));
-		Pair.add(new Card("S", "3"));
+		List<Card> Pair = hands.get(1).getDeck();
 		assertTrue(Hands.isPair(Pair));
 		assertFalse(Hands.isRoyalFlush(Pair));
 		assertFalse(Hands.isStraightFlush(Pair));
@@ -51,12 +43,7 @@ public class TestOnePair extends TestCase {
 	
 	//test input with highest possible one pair
 	public void testHighest() {
-		List<Card> Pair = new ArrayList<Card>();
-		Pair.add(new Card("S", "A"));
-		Pair.add(new Card("H", "A"));
-		Pair.add(new Card("C", "9"));
-		Pair.add(new Card("D", "7"));
-		Pair.add(new Card("S", "3"));
+		List<Card> Pair = hands.get(2).getDeck();
 		assertTrue(Hands.isPair(Pair));
 		assertFalse(Hands.isRoyalFlush(Pair));
 		assertFalse(Hands.isStraightFlush(Pair));
