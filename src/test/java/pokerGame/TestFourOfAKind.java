@@ -10,15 +10,12 @@ public class TestFourOfAKind extends TestCase {
 		super(name);
 	}
 	
+	List<Deck> hands = ReadFile.read("tests/test_four_of_a_kind.txt");
+	
 	//test average four of a kind hand
 	//test method determining a four of a kind hand
 	public void testFourOfAKind() {
-		List<Card> FourOfAKind = new ArrayList<Card>();
-		FourOfAKind.add(new Card("S", "4"));
-		FourOfAKind.add(new Card("H", "4"));
-		FourOfAKind.add(new Card("C", "4"));
-		FourOfAKind.add(new Card("D", "4"));
-		FourOfAKind.add(new Card("S", "3"));
+		List<Card> FourOfAKind = hands.get(0).getDeck();
 		assertTrue(Hands.isFourOfAKind(FourOfAKind));
 		assertFalse(Hands.isRoyalFlush(FourOfAKind));
 		assertFalse(Hands.isStraightFlush(FourOfAKind));
@@ -32,12 +29,7 @@ public class TestFourOfAKind extends TestCase {
 	
 	//test input with lowest possible four of a kind
 	public void testlowest() {
-		List<Card> FourOfAKind = new ArrayList<Card>();
-		FourOfAKind.add(new Card("S", "2"));
-		FourOfAKind.add(new Card("H", "2"));
-		FourOfAKind.add(new Card("C", "2"));
-		FourOfAKind.add(new Card("D", "2"));
-		FourOfAKind.add(new Card("S", "3"));
+		List<Card> FourOfAKind = hands.get(1).getDeck();
 		assertTrue(Hands.isFourOfAKind(FourOfAKind));
 		assertFalse(Hands.isRoyalFlush(FourOfAKind));
 		assertFalse(Hands.isStraightFlush(FourOfAKind));
@@ -51,12 +43,7 @@ public class TestFourOfAKind extends TestCase {
 	
 	//test input with highest possible four of a kind
 	public void testHighest() {
-		List<Card> FourOfAKind = new ArrayList<Card>();
-		FourOfAKind.add(new Card("S", "A"));
-		FourOfAKind.add(new Card("H", "A"));
-		FourOfAKind.add(new Card("C", "A"));
-		FourOfAKind.add(new Card("D", "A"));
-		FourOfAKind.add(new Card("S", "K"));
+		List<Card> FourOfAKind = hands.get(2).getDeck();
 		assertTrue(Hands.isFourOfAKind(FourOfAKind));
 		assertFalse(Hands.isRoyalFlush(FourOfAKind));
 		assertFalse(Hands.isStraightFlush(FourOfAKind));
