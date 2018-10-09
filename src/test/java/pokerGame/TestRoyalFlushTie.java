@@ -10,21 +10,13 @@ public class TestRoyalFlushTie extends TestCase {
 		super(name);
 	}
 
+	List<Deck> hands = ReadFile.read("tests/test_royal_flush_tie.txt");
+	
 	//tests two royal flush hands
 	public void testTie() {
-		List<Card> royalFlush1 = new ArrayList<Card>();
-		royalFlush1.add(new Card("H", "10"));
-		royalFlush1.add(new Card("H", "J"));
-		royalFlush1.add(new Card("H", "Q"));
-		royalFlush1.add(new Card("H", "K"));
-		royalFlush1.add(new Card("H", "A"));
+		List<Card> royalFlush1 = hands.get(0).getDeck();
 		
-		List<Card> royalFlush2 = new ArrayList<Card>();
-		royalFlush2.add(new Card("S", "10"));
-		royalFlush2.add(new Card("S", "J"));
-		royalFlush2.add(new Card("S", "Q"));
-		royalFlush2.add(new Card("S", "K"));
-		royalFlush2.add(new Card("S", "A"));
+		List<Card> royalFlush2 = hands.get(1).getDeck();
 		
 		assertEquals("AIP wins.", Tie.settle(10, royalFlush1, royalFlush2));
 	}
