@@ -49,7 +49,7 @@ public class TestFlushTie extends TestCase {
 	}
 	
 	//tests two flush hands with two same high card
-	public void testTwoSameHighCard() {
+	public void testTwoSameHighCards() {
 		List<Card> Flush1 = new ArrayList<Card>();
 		Flush1.add(new Card("S", "4"));
 		Flush1.add(new Card("S", "J"));
@@ -68,7 +68,7 @@ public class TestFlushTie extends TestCase {
 	}
 	
 	//tests two flush hands with three same high card
-	public void testThreeSameHighCard() {
+	public void testThreeSameHighCards() {
 		List<Card> Flush1 = new ArrayList<Card>();
 		Flush1.add(new Card("S", "3"));
 		Flush1.add(new Card("S", "J"));
@@ -87,7 +87,7 @@ public class TestFlushTie extends TestCase {
 	}
 	
 	//tests two flush hands with four same high card
-	public void testFourSameHighCard() {
+	public void testFourSameHighCards() {
 		List<Card> Flush1 = new ArrayList<Card>();
 		Flush1.add(new Card("S", "4"));
 		Flush1.add(new Card("S", "2"));
