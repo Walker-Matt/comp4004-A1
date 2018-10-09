@@ -10,13 +10,13 @@ public class TestDeck extends TestCase {
 	
 	//test getter for a Decks list of Cards
 	public void testDeckGetDeck() {
-		Deck d = new Deck();
+		Deck d = ReadFile.read("cards/full_deck.txt").get(0);
 		assertTrue(d.getDeck() instanceof List<?>);
 	}
 	
 	//test size of Decks list of Cards
 	public void testDeckGetSize() {
-		Deck d = new Deck();
+		Deck d = ReadFile.read("cards/full_deck.txt").get(0);
 		assertEquals(52, d.getSize()); //Should have 52 cards
 	}
 	
@@ -25,7 +25,7 @@ public class TestDeck extends TestCase {
 	//test draw method returns List
 	//test draw method returns List Card types
 	public void testDeckDraw() {
-		Deck d = new Deck();
+		Deck d = ReadFile.read("cards/full_deck.txt").get(0);
 		assertEquals(1, d.draw(1).size());
 		assertEquals(51, d.getSize());
 		assertTrue(d.draw(1) instanceof List<?>);
@@ -34,7 +34,7 @@ public class TestDeck extends TestCase {
 
 	//test draw method with input of 0
 	public void testDeckDraw0() {
-		Deck d = new Deck();
+		Deck d = ReadFile.read("cards/full_deck.txt").get(0);
 		List<Card> drawn = d.draw(0);
 		assertEquals(0, drawn.size());
 		assertEquals(52, d.getSize());
@@ -42,14 +42,14 @@ public class TestDeck extends TestCase {
 	
 	//test draw method with input of -1
 	public void testDeckDrawNeg1() {
-		Deck d = new Deck();
+		Deck d = ReadFile.read("cards/full_deck.txt").get(0);
 		assertEquals(0, d.draw(-1).size());
 		assertEquals(52, d.getSize());
 	}
 	
 	//test draw method with more than 52 at once
 	public void testDeckDraw53AtOnce() {
-		Deck d = new Deck();
+		Deck d = ReadFile.read("cards/full_deck.txt").get(0);
 		assertEquals(52, d.draw(53).size());
 		assertEquals(0, d.getSize());
 	}
@@ -57,7 +57,7 @@ public class TestDeck extends TestCase {
 	//test draw method with input of 52
 	//test draw method with more that 52 separately
 	public void testDeckDraw53Separate() {
-		Deck d = new Deck();
+		Deck d = ReadFile.read("cards/full_deck.txt").get(0);
 		assertEquals(52, d.draw(52).size());
 		assertEquals(0, d.getSize());
 		assertEquals(0, d.draw(1).size());
@@ -68,7 +68,7 @@ public class TestDeck extends TestCase {
 	//test shuffle method doesn't change number of cards
 	//test shuffle method actually shuffles the cards
 	public void testDeckShuffle() {
-		Deck d = new Deck();
+		Deck d = ReadFile.read("cards/full_deck.txt").get(0);
 		List<Card> before = new ArrayList<Card>();
 		List<Card> after = new ArrayList<Card>();
 		before.addAll(d.getDeck());

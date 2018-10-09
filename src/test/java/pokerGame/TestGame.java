@@ -13,7 +13,7 @@ public class TestGame extends TestCase {
 		String[] args = new String[0];
 		Game.main(args);
 		
-		assertTrue(Game.deck instanceof Deck);
+		assertTrue(Game.games.get(0) instanceof Deck);
 		
 		assertTrue(Game.cardsToBeat instanceof List<?>);
 		assertTrue(Game.cardsToBeat.get(0) instanceof Card);
@@ -23,7 +23,7 @@ public class TestGame extends TestCase {
 		assertTrue(Game.AIPcards.get(0) instanceof Card);
 		assertEquals(5, Game.AIPcards.size());
 		
-		assertEquals(42, Game.deck.getSize());
+		assertEquals(42, Game.games.get(0).getSize());
 	}
 	
 	//test String values used for display
