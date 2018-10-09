@@ -206,24 +206,4 @@ public class TestHands extends TestCase {
 		assertFalse(Hands.isTwoPair(Straight));
 		assertFalse(Hands.isPair(Straight));
 	}
-	
-	//test check for a Three of a kind
-	//test check for not everything else
-	public void testHandsThreeOfAKind() {
-		List<Card> ThreeOfAKind = new ArrayList<Card>();
-		ThreeOfAKind.add(new Card("S", "4"));
-		ThreeOfAKind.add(new Card("H", "4"));
-		ThreeOfAKind.add(new Card("C", "4"));
-		ThreeOfAKind.add(new Card("D", "7"));
-		ThreeOfAKind.add(new Card("S", "3"));
-		assertTrue(Hands.isThreeOfAKind(ThreeOfAKind));
-		assertFalse(Hands.isRoyalFlush(ThreeOfAKind));
-		assertFalse(Hands.isStraightFlush(ThreeOfAKind));
-		assertFalse(Hands.isFourOfAKind(ThreeOfAKind));
-		assertFalse(Hands.isFullHouse(ThreeOfAKind));
-		assertFalse(Hands.isFlush(ThreeOfAKind));
-		assertFalse(Hands.isStraight(ThreeOfAKind));
-		assertFalse(Hands.isTwoPair(ThreeOfAKind));
-		assertFalse(Hands.isPair(ThreeOfAKind));	
-	}
 }
