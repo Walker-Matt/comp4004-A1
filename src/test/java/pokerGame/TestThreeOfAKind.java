@@ -10,15 +10,12 @@ public class TestThreeOfAKind extends TestCase {
 		super(name);
 	}
 	
+	List<Deck> hands = ReadFile.read("tests/test_three_of_a_kind.txt");
+	
 	//test average three of a kind hand
 	//test method determining a three of a kind hand
 	public void testThreeOfAKind() {
-		List<Card> ThreeOfAKind = new ArrayList<Card>();
-		ThreeOfAKind.add(new Card("S", "4"));
-		ThreeOfAKind.add(new Card("H", "4"));
-		ThreeOfAKind.add(new Card("C", "4"));
-		ThreeOfAKind.add(new Card("D", "7"));
-		ThreeOfAKind.add(new Card("S", "3"));
+		List<Card> ThreeOfAKind = hands.get(0).getDeck();
 		assertTrue(Hands.isThreeOfAKind(ThreeOfAKind));
 		assertFalse(Hands.isRoyalFlush(ThreeOfAKind));
 		assertFalse(Hands.isStraightFlush(ThreeOfAKind));
@@ -32,12 +29,7 @@ public class TestThreeOfAKind extends TestCase {
 	
 	//test input with lowest possible three of a kind
 	public void testLowest() {
-		List<Card> ThreeOfAKind = new ArrayList<Card>();
-		ThreeOfAKind.add(new Card("S", "2"));
-		ThreeOfAKind.add(new Card("H", "2"));
-		ThreeOfAKind.add(new Card("C", "2"));
-		ThreeOfAKind.add(new Card("D", "7"));
-		ThreeOfAKind.add(new Card("S", "3"));
+		List<Card> ThreeOfAKind = hands.get(1).getDeck();
 		assertTrue(Hands.isThreeOfAKind(ThreeOfAKind));
 		assertFalse(Hands.isRoyalFlush(ThreeOfAKind));
 		assertFalse(Hands.isStraightFlush(ThreeOfAKind));
@@ -51,12 +43,7 @@ public class TestThreeOfAKind extends TestCase {
 	
 	//test input with highest possible three of a kind
 	public void testHighest() {
-		List<Card> ThreeOfAKind = new ArrayList<Card>();
-		ThreeOfAKind.add(new Card("S", "A"));
-		ThreeOfAKind.add(new Card("H", "A"));
-		ThreeOfAKind.add(new Card("C", "A"));
-		ThreeOfAKind.add(new Card("D", "7"));
-		ThreeOfAKind.add(new Card("S", "3"));
+		List<Card> ThreeOfAKind = hands.get(2).getDeck();
 		assertTrue(Hands.isThreeOfAKind(ThreeOfAKind));
 		assertFalse(Hands.isRoyalFlush(ThreeOfAKind));
 		assertFalse(Hands.isStraightFlush(ThreeOfAKind));
