@@ -91,21 +91,4 @@ public class TestHands extends TestCase {
 		assertEquals(2, Hands.type(Pair));
 		assertEquals(1, Hands.type(HighCard));
 	}
-	
-	//test check for a Royal Flush
-	//test check for not everything else
-	public void testHandsRoyalFlush() {
-		List<Card> royalFlush = new ArrayList<Card>();
-		royalFlush.add(new Card("H", "10"));
-		royalFlush.add(new Card("H", "J"));
-		royalFlush.add(new Card("H", "Q"));
-		royalFlush.add(new Card("H", "K"));
-		royalFlush.add(new Card("H", "A"));
-		assertTrue(Hands.isRoyalFlush(royalFlush));
-		assertFalse(Hands.isFourOfAKind(royalFlush));
-		assertFalse(Hands.isFullHouse(royalFlush));
-		assertFalse(Hands.isThreeOfAKind(royalFlush));
-		assertFalse(Hands.isTwoPair(royalFlush));
-		assertFalse(Hands.isPair(royalFlush));
-	}
 }
