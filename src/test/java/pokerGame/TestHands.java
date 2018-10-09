@@ -246,24 +246,4 @@ public class TestHands extends TestCase {
 		assertFalse(Hands.isThreeOfAKind(TwoPair));
 		assertFalse(Hands.isPair(TwoPair));
 	}
-	
-	//test check for a Pair
-	//test check for not a Two Pair
-	public void testHandsPair() {
-		List<Card> Pair = new ArrayList<Card>();
-		Pair.add(new Card("S", "4"));
-		Pair.add(new Card("H", "4"));
-		Pair.add(new Card("C", "9"));
-		Pair.add(new Card("D", "7"));
-		Pair.add(new Card("S", "3"));
-		assertTrue(Hands.isPair(Pair));
-		assertFalse(Hands.isRoyalFlush(Pair));
-		assertFalse(Hands.isStraightFlush(Pair));
-		assertFalse(Hands.isFourOfAKind(Pair));
-		assertFalse(Hands.isFullHouse(Pair));
-		assertFalse(Hands.isFlush(Pair));
-		assertFalse(Hands.isStraight(Pair));
-		assertFalse(Hands.isThreeOfAKind(Pair));
-		assertFalse(Hands.isTwoPair(Pair));
-	}
 }
