@@ -12,8 +12,8 @@ public class AIP {
 		if(Hands.type(hand) < 5) {
 			if(oneAway(hand)) {
 				discard.add(hand.get(removeIndex.get(0)));
-				hand.remove(removeIndex.get(0));
-				drawn = Game.deck.draw(1);
+				hand.remove(removeIndex.get(0).intValue());
+				drawn = Game.gameDeck.draw(1);
 				hand.addAll(drawn);
 			}
 		}

@@ -18,9 +18,9 @@ public class TestAIP extends TestCase {
 		HighCard.add(new Card("S", "3"));
 		
 		AIP.exchange(HighCard);
-		assertEquals(AIP.discard.get(0).getRank() == "3");
-		assertEquals(AIP.discard.get(1).getRank() == "4");
-		assertEquals(AIP.discard.get(2).getRank() == "7");
+		assertEquals("3", AIP.discard.get(0).getRank());
+		assertEquals("4", AIP.discard.get(1).getRank());
+		assertEquals("7", AIP.discard.get(2).getRank());
 	}
 	
 	//test the oneAway method in AIP
@@ -33,6 +33,6 @@ public class TestAIP extends TestCase {
 		royalFlush.add(new Card("H", "A"));
 		
 		assertTrue(AIP.oneAway(royalFlush));
-		assertEquals(AIP.removeIndex(0) == 1);
+		assertEquals(1, AIP.removeIndex.get(0).intValue());
 	}
 }

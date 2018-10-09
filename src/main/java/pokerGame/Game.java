@@ -4,6 +4,7 @@ import java.util.*;
 
 public class Game {
 	static List<Deck> games;
+	static Deck gameDeck;
 	static List<Card> cardsToBeat;
 	static List<Card> AIPcards;
 	static String cardsToBeatDisplay;
@@ -21,11 +22,13 @@ public class Game {
 	}
 	
 	public static void run(Deck deck) {
+		gameDeck = deck;
+		
 		cardsToBeat = new ArrayList<Card>();
-		cardsToBeat.addAll(deck.draw(5));
+		cardsToBeat.addAll(gameDeck.draw(5));
 		
 		AIPcards = new ArrayList<Card>();
-		AIPcards.addAll(deck.draw(5));
+		AIPcards.addAll(gameDeck.draw(5));
 		
 		winnerDisplay = getWinner() + "\n";
 		
