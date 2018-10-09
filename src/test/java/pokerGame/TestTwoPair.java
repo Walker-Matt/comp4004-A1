@@ -9,16 +9,13 @@ public class TestTwoPair extends TestCase {
 	public TestTwoPair(String name) {
 		super(name);
 	}
+	
+	List<Deck> hands = ReadFile.read("tests/test_two_pair.txt");
 
 	//test average two pair hand
 	//test method determining a two pair hand
 	public void testTwoPair() {
-		List<Card> TwoPair = new ArrayList<Card>();
-		TwoPair.add(new Card("S", "4"));
-		TwoPair.add(new Card("H", "4"));
-		TwoPair.add(new Card("C", "9"));
-		TwoPair.add(new Card("D", "9"));
-		TwoPair.add(new Card("S", "3"));
+		List<Card> TwoPair = hands.get(0).getDeck();
 		assertTrue(Hands.isTwoPair(TwoPair));
 		assertFalse(Hands.isRoyalFlush(TwoPair));
 		assertFalse(Hands.isStraightFlush(TwoPair));
@@ -32,12 +29,7 @@ public class TestTwoPair extends TestCase {
 	
 	//test input with lowest possible two pair
 	public void testLowest() {
-		List<Card> TwoPair = new ArrayList<Card>();
-		TwoPair.add(new Card("S", "2"));
-		TwoPair.add(new Card("H", "2"));
-		TwoPair.add(new Card("C", "3"));
-		TwoPair.add(new Card("D", "3"));
-		TwoPair.add(new Card("S", "4"));
+		List<Card> TwoPair = hands.get(1).getDeck();
 		assertTrue(Hands.isTwoPair(TwoPair));
 		assertFalse(Hands.isRoyalFlush(TwoPair));
 		assertFalse(Hands.isStraightFlush(TwoPair));
@@ -51,12 +43,7 @@ public class TestTwoPair extends TestCase {
 	
 	//test input with highest possible two pair
 	public void testHighest() {
-		List<Card> TwoPair = new ArrayList<Card>();
-		TwoPair.add(new Card("S", "K"));
-		TwoPair.add(new Card("H", "K"));
-		TwoPair.add(new Card("C", "A"));
-		TwoPair.add(new Card("D", "A"));
-		TwoPair.add(new Card("S", "3"));
+		List<Card> TwoPair = hands.get(2).getDeck();
 		assertTrue(Hands.isTwoPair(TwoPair));
 		assertFalse(Hands.isRoyalFlush(TwoPair));
 		assertFalse(Hands.isStraightFlush(TwoPair));
