@@ -9,16 +9,13 @@ public class TestFullHouse extends TestCase {
 	public TestFullHouse(String name) {
 		super(name);
 	}
+	
+	List<Deck> hands = ReadFile.read("tests/test_full_house.txt");
 
 	//test average full house hand
 	//test method determining a full house hand
 	public void testFullHouse() {
-		List<Card> FullHouse = new ArrayList<Card>();
-		FullHouse.add(new Card("S", "4"));
-		FullHouse.add(new Card("H", "4"));
-		FullHouse.add(new Card("C", "4"));
-		FullHouse.add(new Card("D", "7"));
-		FullHouse.add(new Card("S", "7"));
+		List<Card> FullHouse = hands.get(0).getDeck();
 		assertTrue(Hands.isFullHouse(FullHouse));
 		assertFalse(Hands.isRoyalFlush(FullHouse));
 		assertFalse(Hands.isStraightFlush(FullHouse));
@@ -32,12 +29,7 @@ public class TestFullHouse extends TestCase {
 	
 	//test input with lowest possible full house
 	public void testLowest() {
-		List<Card> FullHouse = new ArrayList<Card>();
-		FullHouse.add(new Card("S", "2"));
-		FullHouse.add(new Card("H", "2"));
-		FullHouse.add(new Card("C", "2"));
-		FullHouse.add(new Card("D", "3"));
-		FullHouse.add(new Card("S", "3"));
+		List<Card> FullHouse = hands.get(1).getDeck();
 		assertTrue(Hands.isFullHouse(FullHouse));
 		assertFalse(Hands.isRoyalFlush(FullHouse));
 		assertFalse(Hands.isStraightFlush(FullHouse));
@@ -51,12 +43,7 @@ public class TestFullHouse extends TestCase {
 	
 	//test input with highest possible full house
 	public void testHighest() {
-		List<Card> FullHouse = new ArrayList<Card>();
-		FullHouse.add(new Card("S", "A"));
-		FullHouse.add(new Card("H", "A"));
-		FullHouse.add(new Card("C", "A"));
-		FullHouse.add(new Card("D", "K"));
-		FullHouse.add(new Card("S", "K"));
+		List<Card> FullHouse = hands.get(2).getDeck();
 		assertTrue(Hands.isFullHouse(FullHouse));
 		assertFalse(Hands.isRoyalFlush(FullHouse));
 		assertFalse(Hands.isStraightFlush(FullHouse));
