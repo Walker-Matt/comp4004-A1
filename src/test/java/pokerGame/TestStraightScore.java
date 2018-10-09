@@ -9,175 +9,61 @@ public class TestStraightScore extends TestCase {
 	public TestStraightScore(String name) {
 		super(name);
 	}
+	
+	List<Deck> hands = ReadFile.read("tests/test_score.txt");
+	List<Card> royalFlush = hands.get(0).getDeck();
+	List<Card> straightFlush = hands.get(1).getDeck();
+	List<Card> FourOfAKind = hands.get(2).getDeck();
+	List<Card> FullHouse = hands.get(3).getDeck();
+	List<Card> Flush = hands.get(4).getDeck();
+	List<Card> Straight = hands.get(5).getDeck();
+	List<Card> ThreeOfAKind = hands.get(6).getDeck();
+	List<Card> TwoPair = hands.get(7).getDeck();
+	List<Card> Pair = hands.get(8).getDeck();
+	List<Card> HighCard = hands.get(9).getDeck();
 
 	//tests a straight vs a royal flush
 	public void testVsRoyalFlush() {
-		List<Card> Straight = new ArrayList<Card>();
-		Straight.add(new Card("S", "4"));
-		Straight.add(new Card("H", "5"));
-		Straight.add(new Card("C", "6"));
-		Straight.add(new Card("D", "7"));
-		Straight.add(new Card("S", "8"));
-		
-		List<Card> royalFlush = new ArrayList<Card>();
-		royalFlush.add(new Card("H", "10"));
-		royalFlush.add(new Card("H", "J"));
-		royalFlush.add(new Card("H", "Q"));
-		royalFlush.add(new Card("H", "K"));
-		royalFlush.add(new Card("H", "A"));
-		
 		assertTrue(Hands.type(Straight) < Hands.type(royalFlush));
 	}
 	
 	//tests a straight vs a straight flush
 	public void testVsStraightFlush() {
-		List<Card> Straight = new ArrayList<Card>();
-		Straight.add(new Card("S", "4"));
-		Straight.add(new Card("H", "5"));
-		Straight.add(new Card("C", "6"));
-		Straight.add(new Card("D", "7"));
-		Straight.add(new Card("S", "8"));
-		
-		List<Card> straightFlush = new ArrayList<Card>();
-		straightFlush.add(new Card("H", "4"));
-		straightFlush.add(new Card("H", "5"));
-		straightFlush.add(new Card("H", "6"));
-		straightFlush.add(new Card("H", "7"));
-		straightFlush.add(new Card("H", "8"));
-		
 		assertTrue(Hands.type(Straight) < Hands.type(straightFlush));
 	}
 	
 	//tests a straight vs a four of a kind
 	public void testVsFourOfAKind() {
-		List<Card> Straight = new ArrayList<Card>();
-		Straight.add(new Card("S", "4"));
-		Straight.add(new Card("H", "5"));
-		Straight.add(new Card("C", "6"));
-		Straight.add(new Card("D", "7"));
-		Straight.add(new Card("S", "8"));
-		
-		List<Card> FourOfAKind = new ArrayList<Card>();
-		FourOfAKind.add(new Card("S", "4"));
-		FourOfAKind.add(new Card("H", "4"));
-		FourOfAKind.add(new Card("C", "4"));
-		FourOfAKind.add(new Card("D", "4"));
-		FourOfAKind.add(new Card("S", "3"));
-		
 		assertTrue(Hands.type(Straight) < Hands.type(FourOfAKind));
 	}
 	
 	//tests a straight vs a full house
 	public void testVsFullHouse() {
-		List<Card> Straight = new ArrayList<Card>();
-		Straight.add(new Card("S", "4"));
-		Straight.add(new Card("H", "5"));
-		Straight.add(new Card("C", "6"));
-		Straight.add(new Card("D", "7"));
-		Straight.add(new Card("S", "8"));
-		
-		List<Card> FullHouse = new ArrayList<Card>();
-		FullHouse.add(new Card("S", "4"));
-		FullHouse.add(new Card("H", "4"));
-		FullHouse.add(new Card("C", "4"));
-		FullHouse.add(new Card("D", "7"));
-		FullHouse.add(new Card("S", "7"));
-		
 		assertTrue(Hands.type(Straight) < Hands.type(FullHouse));
 	}
 	
 	//tests a straight vs a flush
 	public void testVsFlush() {
-		List<Card> Straight = new ArrayList<Card>();
-		Straight.add(new Card("S", "4"));
-		Straight.add(new Card("H", "5"));
-		Straight.add(new Card("C", "6"));
-		Straight.add(new Card("D", "7"));
-		Straight.add(new Card("S", "8"));
-		
-		List<Card> Flush = new ArrayList<Card>();
-		Flush.add(new Card("S", "4"));
-		Flush.add(new Card("S", "J"));
-		Flush.add(new Card("S", "9"));
-		Flush.add(new Card("S", "7"));
-		Flush.add(new Card("S", "3"));
-		
 		assertTrue(Hands.type(Straight) < Hands.type(Flush));
 	}
 	
 	//tests a straight vs a three of a kind
 	public void testVsThreeOfAKind() {
-		List<Card> Straight = new ArrayList<Card>();
-		Straight.add(new Card("S", "4"));
-		Straight.add(new Card("H", "5"));
-		Straight.add(new Card("C", "6"));
-		Straight.add(new Card("D", "7"));
-		Straight.add(new Card("S", "8"));
-		
-		List<Card> ThreeOfAKind = new ArrayList<Card>();
-		ThreeOfAKind.add(new Card("S", "4"));
-		ThreeOfAKind.add(new Card("H", "4"));
-		ThreeOfAKind.add(new Card("C", "4"));
-		ThreeOfAKind.add(new Card("D", "7"));
-		ThreeOfAKind.add(new Card("S", "3"));
-		
 		assertTrue(Hands.type(Straight) > Hands.type(ThreeOfAKind));
 	}
 	
 	//tests a straight vs a two pair
 	public void testVsTwoPair() {
-		List<Card> Straight = new ArrayList<Card>();
-		Straight.add(new Card("S", "4"));
-		Straight.add(new Card("H", "5"));
-		Straight.add(new Card("C", "6"));
-		Straight.add(new Card("D", "7"));
-		Straight.add(new Card("S", "8"));
-		
-		List<Card> TwoPair = new ArrayList<Card>();
-		TwoPair.add(new Card("S", "4"));
-		TwoPair.add(new Card("H", "4"));
-		TwoPair.add(new Card("C", "9"));
-		TwoPair.add(new Card("D", "9"));
-		TwoPair.add(new Card("S", "3"));
-		
 		assertTrue(Hands.type(Straight) > Hands.type(TwoPair));
 	}
 	
 	//tests a straight vs a one pair
 	public void testVsOnePair() {
-		List<Card> Straight = new ArrayList<Card>();
-		Straight.add(new Card("S", "4"));
-		Straight.add(new Card("H", "5"));
-		Straight.add(new Card("C", "6"));
-		Straight.add(new Card("D", "7"));
-		Straight.add(new Card("S", "8"));
-		
-		List<Card> Pair = new ArrayList<Card>();
-		Pair.add(new Card("S", "4"));
-		Pair.add(new Card("H", "4"));
-		Pair.add(new Card("C", "9"));
-		Pair.add(new Card("D", "7"));
-		Pair.add(new Card("S", "3"));
-		
 		assertTrue(Hands.type(Straight) > Hands.type(Pair));
 	}
 	
 	//tests a straight vs a high card
 	public void testVsHighCard() {
-		List<Card> Straight = new ArrayList<Card>();
-		Straight.add(new Card("S", "4"));
-		Straight.add(new Card("H", "5"));
-		Straight.add(new Card("C", "6"));
-		Straight.add(new Card("D", "7"));
-		Straight.add(new Card("S", "8"));
-		
-		List<Card> HighCard = new ArrayList<Card>();
-		HighCard.add(new Card("S", "4"));
-		HighCard.add(new Card("H", "J"));
-		HighCard.add(new Card("C", "9"));
-		HighCard.add(new Card("D", "7"));
-		HighCard.add(new Card("S", "3"));
-		
 		assertTrue(Hands.type(Straight) > Hands.type(HighCard));
 	}
 }
