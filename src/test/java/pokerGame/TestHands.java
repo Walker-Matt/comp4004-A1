@@ -186,24 +186,4 @@ public class TestHands extends TestCase {
 		assertFalse(Hands.isTwoPair(Flush));
 		assertFalse(Hands.isPair(Flush));
 	}
-	
-	//test check for a Straight
-	//test check for not everything else
-	public void testHandsStraight() {
-		List<Card> Straight = new ArrayList<Card>();
-		Straight.add(new Card("S", "4"));
-		Straight.add(new Card("H", "5"));
-		Straight.add(new Card("C", "6"));
-		Straight.add(new Card("D", "7"));
-		Straight.add(new Card("S", "8"));
-		assertTrue(Hands.isStraight(Straight));
-		assertFalse(Hands.isRoyalFlush(Straight));
-		assertFalse(Hands.isStraightFlush(Straight));
-		assertFalse(Hands.isFourOfAKind(Straight));
-		assertFalse(Hands.isFullHouse(Straight));
-		assertFalse(Hands.isFlush(Straight));
-		assertFalse(Hands.isThreeOfAKind(Straight));
-		assertFalse(Hands.isTwoPair(Straight));
-		assertFalse(Hands.isPair(Straight));
-	}
 }
