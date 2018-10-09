@@ -9,16 +9,13 @@ public class TestFlush extends TestCase {
 	public TestFlush(String name) {
 		super(name);
 	}
+	
+	List<Deck> hands = ReadFile.read("tests/test_flush.txt");
 
 	//test average flush hand
 	//test method determining a flush hand
 	public void testFlush() {
-		List<Card> Flush = new ArrayList<Card>();
-		Flush.add(new Card("S", "4"));
-		Flush.add(new Card("S", "J"));
-		Flush.add(new Card("S", "9"));
-		Flush.add(new Card("S", "7"));
-		Flush.add(new Card("S", "3"));
+		List<Card> Flush = hands.get(0).getDeck();
 		assertTrue(Hands.isFlush(Flush));
 		assertFalse(Hands.isRoyalFlush(Flush));
 		assertFalse(Hands.isStraightFlush(Flush));
@@ -32,12 +29,7 @@ public class TestFlush extends TestCase {
 	
 	//test input with lowest possible flush
 	public void testLowest() {
-		List<Card> Flush = new ArrayList<Card>();
-		Flush.add(new Card("C", "2"));
-		Flush.add(new Card("C", "3"));
-		Flush.add(new Card("C", "4"));
-		Flush.add(new Card("C", "5"));
-		Flush.add(new Card("C", "7"));
+		List<Card> Flush = hands.get(1).getDeck();
 		assertTrue(Hands.isFlush(Flush));
 		assertFalse(Hands.isRoyalFlush(Flush));
 		assertFalse(Hands.isStraightFlush(Flush));
@@ -51,12 +43,7 @@ public class TestFlush extends TestCase {
 	
 	//test input with highest possible flush
 	public void testHighest() {
-		List<Card> Flush = new ArrayList<Card>();
-		Flush.add(new Card("S", "9"));
-		Flush.add(new Card("S", "J"));
-		Flush.add(new Card("S", "Q"));
-		Flush.add(new Card("S", "K"));
-		Flush.add(new Card("S", "A"));
+		List<Card> Flush = hands.get(1).getDeck();
 		assertTrue(Hands.isFlush(Flush));
 		assertFalse(Hands.isRoyalFlush(Flush));
 		assertFalse(Hands.isStraightFlush(Flush));
