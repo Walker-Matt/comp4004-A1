@@ -9,117 +9,59 @@ public class TestFlushTie extends TestCase {
 	public TestFlushTie(String name) {
 		super(name);
 	}
+	
+	List<Deck> hands = ReadFile.read("tests/test_flush_tie.txt");
 
 	//tests two flush hands with different high cards
 	public void testDifferentHighCards() {
-		List<Card> Flush1 = new ArrayList<Card>();
-		Flush1.add(new Card("S", "4"));
-		Flush1.add(new Card("S", "2"));
-		Flush1.add(new Card("S", "9"));
-		Flush1.add(new Card("S", "7"));
-		Flush1.add(new Card("S", "3"));
+		List<Card> Flush1 = hands.get(0).getDeck();
 		
-		List<Card> Flush2 = new ArrayList<Card>();
-		Flush2.add(new Card("S", "4"));
-		Flush2.add(new Card("S", "J"));
-		Flush2.add(new Card("S", "9"));
-		Flush2.add(new Card("S", "7"));
-		Flush2.add(new Card("S", "3"));
+		List<Card> Flush2 = hands.get(1).getDeck();
 		
 		assertEquals("AIP wins.", Tie.settle(6, Flush1, Flush2));
 	}
 	
 	//tests two flush hands with one same high card
 	public void testOneSameHighCard() {
-		List<Card> Flush1 = new ArrayList<Card>();
-		Flush1.add(new Card("S", "4"));
-		Flush1.add(new Card("S", "J"));
-		Flush1.add(new Card("S", "8"));
-		Flush1.add(new Card("S", "7"));
-		Flush1.add(new Card("S", "3"));
+		List<Card> Flush1 = hands.get(2).getDeck();
 		
-		List<Card> Flush2 = new ArrayList<Card>();
-		Flush2.add(new Card("S", "4"));
-		Flush2.add(new Card("S", "J"));
-		Flush2.add(new Card("S", "9"));
-		Flush2.add(new Card("S", "7"));
-		Flush2.add(new Card("S", "3"));
+		List<Card> Flush2 = hands.get(3).getDeck();
 		
 		assertEquals("AIP wins.", Tie.settle(6, Flush1, Flush2));
 	}
 	
 	//tests two flush hands with two same high card
 	public void testTwoSameHighCards() {
-		List<Card> Flush1 = new ArrayList<Card>();
-		Flush1.add(new Card("S", "4"));
-		Flush1.add(new Card("S", "J"));
-		Flush1.add(new Card("S", "9"));
-		Flush1.add(new Card("S", "6"));
-		Flush1.add(new Card("S", "3"));
+		List<Card> Flush1 = hands.get(4).getDeck();
 		
-		List<Card> Flush2 = new ArrayList<Card>();
-		Flush2.add(new Card("S", "4"));
-		Flush2.add(new Card("S", "J"));
-		Flush2.add(new Card("S", "9"));
-		Flush2.add(new Card("S", "7"));
-		Flush2.add(new Card("S", "3"));
+		List<Card> Flush2 = hands.get(5).getDeck();
 		
 		assertEquals("AIP wins.", Tie.settle(6, Flush1, Flush2));
 	}
 	
 	//tests two flush hands with three same high card
 	public void testThreeSameHighCards() {
-		List<Card> Flush1 = new ArrayList<Card>();
-		Flush1.add(new Card("S", "3"));
-		Flush1.add(new Card("S", "J"));
-		Flush1.add(new Card("S", "9"));
-		Flush1.add(new Card("S", "7"));
-		Flush1.add(new Card("S", "2"));
+		List<Card> Flush1 = hands.get(6).getDeck();
 		
-		List<Card> Flush2 = new ArrayList<Card>();
-		Flush2.add(new Card("S", "4"));
-		Flush2.add(new Card("S", "J"));
-		Flush2.add(new Card("S", "9"));
-		Flush2.add(new Card("S", "7"));
-		Flush2.add(new Card("S", "3"));
+		List<Card> Flush2 = hands.get(7).getDeck();
 		
 		assertEquals("AIP wins.", Tie.settle(6, Flush1, Flush2));
 	}
 	
 	//tests two flush hands with four same high card
 	public void testFourSameHighCards() {
-		List<Card> Flush1 = new ArrayList<Card>();
-		Flush1.add(new Card("S", "4"));
-		Flush1.add(new Card("S", "2"));
-		Flush1.add(new Card("S", "9"));
-		Flush1.add(new Card("S", "7"));
-		Flush1.add(new Card("S", "2"));
+		List<Card> Flush1 = hands.get(8).getDeck();
 		
-		List<Card> Flush2 = new ArrayList<Card>();
-		Flush2.add(new Card("S", "4"));
-		Flush2.add(new Card("S", "J"));
-		Flush2.add(new Card("S", "9"));
-		Flush2.add(new Card("S", "7"));
-		Flush2.add(new Card("S", "3"));
+		List<Card> Flush2 = hands.get(9).getDeck();
 		
 		assertEquals("AIP wins.", Tie.settle(6, Flush1, Flush2));
 	}
 	
 	//tests two flush hands with all same card ranks
 	public void testAllSameRanks() {
-		List<Card> Flush1 = new ArrayList<Card>();
-		Flush1.add(new Card("D", "4"));
-		Flush1.add(new Card("D", "2"));
-		Flush1.add(new Card("D", "9"));
-		Flush1.add(new Card("D", "7"));
-		Flush1.add(new Card("D", "3"));
+		List<Card> Flush1 = hands.get(10).getDeck();
 		
-		List<Card> Flush2 = new ArrayList<Card>();
-		Flush2.add(new Card("S", "4"));
-		Flush2.add(new Card("S", "J"));
-		Flush2.add(new Card("S", "9"));
-		Flush2.add(new Card("S", "7"));
-		Flush2.add(new Card("S", "3"));
+		List<Card> Flush2 = hands.get(11).getDeck();
 		
 		assertEquals("AIP wins.", Tie.settle(6, Flush1, Flush2));
 	}
