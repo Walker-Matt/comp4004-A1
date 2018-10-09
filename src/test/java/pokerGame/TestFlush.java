@@ -50,7 +50,7 @@ public class TestFlush extends TestCase {
 	}
 	
 	//test input with highest possible flush
-	public void testHandsFlush() {
+	public void testHighest() {
 		List<Card> Flush = new ArrayList<Card>();
 		Flush.add(new Card("S", "9"));
 		Flush.add(new Card("S", "J"));
