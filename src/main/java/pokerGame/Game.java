@@ -12,9 +12,11 @@ public class Game {
 	static String winnerDisplay;
 	
 	public static void main(String args[]) {
-		games = ReadFile.read("cards/full_deck.txt");
-		for(Deck game : games) {
-			run(game);
+		games = ReadFile.read("cards/game_of_suits.txt");
+		for(int i=1; i<games.size()+1; i++) {
+			System.out.print("Game number " + i + ":\n");
+			run(games.get(i-1));
+			System.out.print("\n");
 		}
 	}
 	
