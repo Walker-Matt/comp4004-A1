@@ -3,7 +3,7 @@ package pokerGame;
 import java.util.*;
 
 public class Game {
-	static Deck deck;
+	static List<Deck> games;
 	static List<Card> cardsToBeat;
 	static List<Card> AIPcards;
 	static String cardsToBeatDisplay;
@@ -12,9 +12,13 @@ public class Game {
 	static String winnerDisplay;
 	
 	public static void main(String args[]) {
-		deck = new Deck();
-		deck.shuffle();
-		
+		games = ReadFile.read("cards/full_deck.txt");
+		for(Deck game : games) {
+			run(game);
+		}
+	}
+	
+	public static void run(Deck deck) {
 		cardsToBeat = new ArrayList<Card>();
 		cardsToBeat.addAll(deck.draw(5));
 		
