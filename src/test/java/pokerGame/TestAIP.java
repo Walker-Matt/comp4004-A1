@@ -84,7 +84,7 @@ public class TestAIP extends TestCase {
 		
 		AIP.exchange(ThreeOfAKind);
 		
-		assertEquals(3, AIP.removeIndex.get(0).intValue());
+		assertEquals(0, AIP.removeIndex.get(0).intValue());
 		assertEquals(4, AIP.removeIndex.get(1).intValue());
 	}
 }

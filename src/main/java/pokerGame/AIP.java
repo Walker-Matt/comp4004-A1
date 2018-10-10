@@ -3,9 +3,9 @@ package pokerGame;
 import java.util.*;
 
 public class AIP {
-	static List<Card> discard = new ArrayList<Card>();
+	static List<Card> discard;
 	static List<Card> drawn;
-	static List<Integer> removeIndex = new ArrayList<Integer>();
+	static List<Integer> removeIndex;
 	
 	private static class SortByOrder implements Comparator<Card> {
 		//used to sort by Cards order (Aces high)
@@ -16,6 +16,9 @@ public class AIP {
 	
 	//implements simple strategy for exchanging cards
  	public static List<Card> exchange(List<Card> hand) {
+ 		discard = new ArrayList<Card>();
+ 		drawn = new ArrayList<Card>();
+ 		removeIndex = new ArrayList<Integer>();
 		if(Hands.type(hand) < 5) {
 			if(oneAway(hand)) {
 				int index = removeIndex.get(0);
@@ -33,10 +36,40 @@ public class AIP {
 				drawn = Game.gameDeck.draw(2);
 				hand.addAll(drawn);
 				return hand;
+			} else if(threeSameRank(hand)) {
+				for(int i=removeIndex.size()-1; i>=0; i--) {
+					int index = removeIndex.get(i);
+					discard.add(hand.get(index));
+					hand.remove(index);
+				}
+				drawn = Game.gameDeck.draw(2);
+				hand.addAll(drawn);
+				return hand;
 			}
 		}
 		return hand;
 	}
+ 	
+ 	public static boolean threeSameRank(List<Card> hand) {
+ 		for(Card r : hand) {
+ 			String rank = r.getRank();
+ 			int count = 0;
+	 		for(Card c : hand) {
+	 			if(c.getRank().equals(rank)) {
+	 				count++;
+	 			}
+	 		}
+	 		if(count == 3) {
+	 			for(int i=0; i<hand.size(); i++) {
+	 				if(hand.get(i).getRank() != rank) {
+	 					removeIndex.add(i);
+	 				}
+	 			}
+	 			return true;
+	 		}
+ 		}
+ 		return false;
+ 	}
  	
  	public static boolean threeSameSuit(List<Card> hand) {
  		for(Card s : hand) {
