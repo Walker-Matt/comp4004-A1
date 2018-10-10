@@ -15,6 +15,7 @@ public class AIP {
 				hand.remove(removeIndex.get(0).intValue());
 				drawn = Game.gameDeck.draw(1);
 				hand.addAll(drawn);
+				return hand;
 			}
 		}
 		return hand;

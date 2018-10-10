@@ -9,6 +9,7 @@ public class TestAIP extends TestCase {
 	}
 	
 	//test the exchange method in AIP
+	/*
 	public void testAIPExchangeHighCard() {
 		List<Card> HighCard = new ArrayList<Card>();
 		HighCard.add(new Card("S", "4"));
@@ -22,8 +23,10 @@ public class TestAIP extends TestCase {
 		assertEquals("4", AIP.discard.get(1).getRank());
 		assertEquals("7", AIP.discard.get(2).getRank());
 	}
+	*/
 	
 	//test the oneAway method in AIP
+	//test one away from a royal flush
 	public void testAIPOneAway() {
 		List<Card> royalFlush = new ArrayList<Card>();
 		royalFlush.add(new Card("H", "10"));
@@ -33,6 +36,19 @@ public class TestAIP extends TestCase {
 		royalFlush.add(new Card("H", "A"));
 		
 		assertTrue(AIP.oneAway(royalFlush));
+		assertEquals(1, AIP.removeIndex.get(0).intValue());
+	}
+	
+	//test one away from a straight flush
+	public void testAIPOneAwayStraightFlush() {
+		List<Card> straightFlush = new ArrayList<Card>();
+		straightFlush.add(new Card("H", "4"));
+		straightFlush.add(new Card("C", "3"));
+		straightFlush.add(new Card("H", "6"));
+		straightFlush.add(new Card("H", "7"));
+		straightFlush.add(new Card("H", "8"));
+		
+		assertTrue(AIP.oneAway(straightFlush));
 		assertEquals(1, AIP.removeIndex.get(0).intValue());
 	}
 }
