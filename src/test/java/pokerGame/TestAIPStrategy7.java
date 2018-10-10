@@ -17,8 +17,8 @@ public class TestAIPStrategy7 extends TestCase {
 		AIP.exchange(hand);
 		assertEquals(3, AIP.removeIndex.size());
 		assertEquals(0, AIP.removeIndex.get(0).intValue());
-		assertEquals(1, AIP.removeIndex.get(0).intValue());
-		assertEquals(2, AIP.removeIndex.get(0).intValue());
+		assertEquals(1, AIP.removeIndex.get(1).intValue());
+		assertEquals(2, AIP.removeIndex.get(2).intValue());
 	}
 	
 	//tests with three cards the same suit
@@ -35,7 +35,7 @@ public class TestAIPStrategy7 extends TestCase {
 		AIP.exchange(hand);
 		assertEquals(3, AIP.removeIndex.size());
 		assertEquals(0, AIP.removeIndex.get(0).intValue());
-		assertEquals(1, AIP.removeIndex.get(0).intValue());
-		assertEquals(2, AIP.removeIndex.get(0).intValue());
+		assertEquals(1, AIP.removeIndex.get(1).intValue());
+		assertEquals(2, AIP.removeIndex.get(2).intValue());
 	}
 }
