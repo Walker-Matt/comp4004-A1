@@ -96,4 +96,18 @@ public class TestAIP extends TestCase {
 		assertEquals(0, AIP.removeIndex.get(0).intValue());
 		assertEquals(4, AIP.removeIndex.get(1).intValue());
 	}
+	
+	//tests for two pairs
+	public void testAIPTwoPair() {
+		List<Card> TwoPair = new ArrayList<Card>();
+		TwoPair.add(new Card("S", "4"));
+		TwoPair.add(new Card("H", "4"));
+		TwoPair.add(new Card("C", "9"));
+		TwoPair.add(new Card("D", "9"));
+		TwoPair.add(new Card("S", "3"));
+		
+		AIP.exchange(TwoPair);
+		
+		assertEquals(0, AIP.removeIndex.get(0).intValue());
+	}
 }
