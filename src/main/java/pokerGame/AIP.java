@@ -23,10 +23,40 @@ public class AIP {
 				drawn = Game.gameDeck.draw(1);
 				hand.addAll(drawn);
 				return hand;
+			} else if(threeSameSuit(hand)) {
+				for(int i=0; i<removeIndex.size(); i++) {
+					System.out.print(removeIndex.get(i));
+					discard.add(hand.get(removeIndex.get(i)));
+					hand.remove(removeIndex.get(i).intValue());
+				}
+				drawn = Game.gameDeck.draw(2);
+				hand.addAll(drawn);
+				return hand;
 			}
 		}
 		return hand;
 	}
+ 	
+ 	public static boolean threeSameSuit(List<Card> hand) {
+ 		for(Card s : hand) {
+ 			String suit = s.getSuit();
+ 			int count = 0;
+	 		for(Card c : hand) {
+	 			if(c.getSuit().equals(suit)) {
+	 				count++;
+	 			}
+	 		}
+	 		if(count == 3) {
+	 			for(int i=0; i<hand.size(); i++) {
+	 				if(hand.get(i).getSuit() != suit) {
+	 					removeIndex.add(i);
+	 				}
+	 			}
+	 			return true;
+	 		}
+ 		}
+ 		return false;
+ 	}
  	
  	public static boolean oneAway(List<Card> hand) {
  		//one away from a royal flush
