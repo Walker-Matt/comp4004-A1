@@ -7,9 +7,11 @@ public class Game {
 	static Deck gameDeck;
 	static List<Card> cardsToBeat;
 	static List<Card> AIPcards;
+	static List<Card> AIPexchange;
 	static String cardsToBeatDisplay;
 	static String AIPcardsDisplay;
 	static String AIPExchangeDisplay;
+	static String AIPcardsAfterDisplay;
 	static String handsDisplay;
 	static String winnerDisplay;
 	
@@ -47,8 +49,25 @@ public class Game {
 				AIPcards.get(4).toString() + "\n";
 		
 		AIP.exchange(AIPcards);
+		if(AIP.removeIndex.size() != 0) {
+			for(int i=AIP.removeIndex.size()-1; i>=0; i--) {
+				int index = AIP.removeIndex.get(i);
+				AIPcards.remove(index);
+				AIPexchange = new ArrayList<Card>();
+				List<Card> newCard = gameDeck.draw(1);
+				AIPexchange.add(newCard.get(0));
+				AIPcards.add(newCard.get(0));
+			}
+		}
 		
 		AIPExchangeDisplay = getAIPExchangeDisplay() + "\n";
+		
+		AIPcardsAfterDisplay = "AIP cards after: " + 
+				AIPcards.get(0).toString() + " " +
+				AIPcards.get(1).toString() + " " +
+				AIPcards.get(2).toString() + " " +
+				AIPcards.get(3).toString() + " " +
+				AIPcards.get(4).toString() + "\n";
 		
 		handsDisplay = getHandsDisplay() + "\n";
 		
@@ -66,7 +85,7 @@ public class Game {
 				discard = discard + " " + c.toString();
 			}
 			String drawn = "";
-			for(Card c : AIP.drawn) {
+			for(Card c : AIPexchange) {
 				drawn = drawn + " " + c.toString();
 			}
 			
@@ -121,6 +140,7 @@ public class Game {
 		System.out.print(cardsToBeatDisplay);
 		System.out.print(AIPcardsDisplay);
 		System.out.print(AIPExchangeDisplay);
+		System.out.print(AIPcardsAfterDisplay);
 		System.out.print(handsDisplay);
 		System.out.print(winnerDisplay);
 	}

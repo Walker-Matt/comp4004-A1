@@ -4,7 +4,6 @@ import java.util.*;
 
 public class AIP {
 	static List<Card> discard;
-	static List<Card> drawn;
 	static List<Integer> removeIndex;
 	
 	private static class SortByOrder implements Comparator<Card> {
@@ -17,33 +16,23 @@ public class AIP {
 	//implements simple strategy for exchanging cards
  	public static List<Card> exchange(List<Card> hand) {
  		discard = new ArrayList<Card>();
- 		drawn = new ArrayList<Card>();
  		removeIndex = new ArrayList<Integer>();
 		if(Hands.type(hand) < 5) {
 			if(oneAway(hand)) {
 				int index = removeIndex.get(0);
 				discard.add(hand.get(index));
-				hand.remove(index);
-				drawn = Game.gameDeck.draw(1);
-				hand.addAll(drawn);
 				return hand;
 			} else if(threeSameSuit(hand)) {
 				for(int i=removeIndex.size()-1; i>=0; i--) {
 					int index = removeIndex.get(i);
 					discard.add(hand.get(index));
-					hand.remove(index);
 				}
-				drawn = Game.gameDeck.draw(2);
-				hand.addAll(drawn);
 				return hand;
 			} else if(threeSameRank(hand)) {
 				for(int i=removeIndex.size()-1; i>=0; i--) {
 					int index = removeIndex.get(i);
 					discard.add(hand.get(index));
-					hand.remove(index);
 				}
-				drawn = Game.gameDeck.draw(2);
-				hand.addAll(drawn);
 				return hand;
 			}
 		}

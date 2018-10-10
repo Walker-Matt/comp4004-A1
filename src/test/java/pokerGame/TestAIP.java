@@ -54,9 +54,6 @@ public class TestAIP extends TestCase {
 	
 	//tests if has three cards of the same suit
 	public void testAIPThreeCardsSameSuit() {
-		String[] args = new String[0];
-		Game.main(args);
-		
 		List<Card> threeSameSuit = new ArrayList<Card>();
 		threeSameSuit.add(new Card("H", "4"));
 		threeSameSuit.add(new Card("D", "6"));
@@ -72,9 +69,6 @@ public class TestAIP extends TestCase {
 	
 	//tests if has three cards of the same rank
 	public void testAIPThreeCardsSameRank() {
-		String[] args = new String[0];
-		Game.main(args);
-		
 		List<Card> ThreeOfAKind = new ArrayList<Card>();
 		ThreeOfAKind.add(new Card("S", "4"));
 		ThreeOfAKind.add(new Card("H", "4"));
