@@ -50,14 +50,16 @@ public class Game {
 		
 		AIP.exchange(AIPcards);
 		if(AIP.removeIndex.size() != 0) {
+			int count = 0;
 			for(int i=AIP.removeIndex.size()-1; i>=0; i--) {
 				int index = AIP.removeIndex.get(i);
 				AIPcards.remove(index);
-				AIPexchange = new ArrayList<Card>();
-				List<Card> newCard = gameDeck.draw(1);
-				AIPexchange.add(newCard.get(0));
-				AIPcards.add(newCard.get(0));
+				count++;
 			}
+			AIPexchange = new ArrayList<Card>();
+			List<Card> newCards = gameDeck.draw(count);
+			AIPexchange.addAll(newCards);
+			AIPcards.addAll(newCards);
 		}
 		
 		AIPExchangeDisplay = getAIPExchangeDisplay() + "\n";
