@@ -8,23 +8,6 @@ public class TestAIP extends TestCase {
 		super(name);
 	}
 	
-	//test the exchange method in AIP
-	/*
-	public void testAIPExchangeHighCard() {
-		List<Card> HighCard = new ArrayList<Card>();
-		HighCard.add(new Card("S", "4"));
-		HighCard.add(new Card("H", "J"));
-		HighCard.add(new Card("C", "9"));
-		HighCard.add(new Card("D", "7"));
-		HighCard.add(new Card("S", "3"));
-		
-		AIP.exchange(HighCard);
-		assertEquals("3", AIP.discard.get(0).getRank());
-		assertEquals("4", AIP.discard.get(1).getRank());
-		assertEquals("7", AIP.discard.get(2).getRank());
-	}
-	*/
-	
 	//test the oneAway method in AIP
 	//test one away from a royal flush
 	public void testAIPOneAway() {
@@ -125,5 +108,21 @@ public class TestAIP extends TestCase {
 		assertEquals(0, AIP.removeIndex.get(0).intValue());
 		assertEquals(3, AIP.removeIndex.get(1).intValue());
 		assertEquals(4, AIP.removeIndex.get(2).intValue());
+	}
+	
+	//tests for two highest cards
+	public void testAIPTwoHighest() {
+		List<Card> HighCard = new ArrayList<Card>();
+		HighCard.add(new Card("S", "4"));
+		HighCard.add(new Card("H", "J"));
+		HighCard.add(new Card("C", "9"));
+		HighCard.add(new Card("D", "7"));
+		HighCard.add(new Card("S", "3"));
+		
+		AIP.exchange(HighCard);
+		
+		assertEquals(0, AIP.removeIndex.get(0).intValue());
+		assertEquals(1, AIP.removeIndex.get(1).intValue());
+		assertEquals(2, AIP.removeIndex.get(2).intValue());
 	}
 }
