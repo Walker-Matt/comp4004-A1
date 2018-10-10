@@ -22,8 +22,6 @@ public class TestGame extends TestCase {
 		assertTrue(Game.AIPcards instanceof List<?>);
 		assertTrue(Game.AIPcards.get(0) instanceof Card);
 		assertEquals(5, Game.AIPcards.size());
-		
-		assertEquals(42, Game.games.get(0).getSize());
 	}
 	
 	//test String values used for display
@@ -44,12 +42,15 @@ public class TestGame extends TestCase {
 				Game.AIPcards.get(3).toString() + " " +
 				Game.AIPcards.get(4).toString()+ "\n";
 		
+		String AIPExchange = Game.getAIPExchangeDisplay() + "\n";
+		
 		String handTypes = Game.getHandsDisplay() + "\n";
 		
 		String winner = Game.getWinner() + "\n";
 		
 		assertEquals(cardsToBeat, Game.cardsToBeatDisplay);
 		assertEquals(AIPcards, Game.AIPcardsDisplay);
+		assertEquals(AIPExchange, Game.AIPExchangeDisplay);
 		assertEquals(handTypes, Game.handsDisplay);
 		assertEquals(winner, Game.winnerDisplay);
 	}
