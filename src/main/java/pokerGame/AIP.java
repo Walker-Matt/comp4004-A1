@@ -25,7 +25,6 @@ public class AIP {
 				return hand;
 			} else if(threeSameSuit(hand)) {
 				for(int i=0; i<removeIndex.size(); i++) {
-					System.out.print(removeIndex.get(i));
 					discard.add(hand.get(removeIndex.get(i)));
 					hand.remove(removeIndex.get(i).intValue());
 				}

@@ -54,12 +54,17 @@ public class TestAIP extends TestCase {
 	
 	//tests if has three cards of the same suit
 	public void testAIPThreeCardsSameSuit() {
+		String[] args = new String[0];
+		Game.main(args);
+		
 		List<Card> threeSameSuit = new ArrayList<Card>();
 		threeSameSuit.add(new Card("H", "4"));
 		threeSameSuit.add(new Card("D", "6"));
 		threeSameSuit.add(new Card("H", "2"));
 		threeSameSuit.add(new Card("C", "3"));
 		threeSameSuit.add(new Card("H", "9"));
+		
+		AIP.exchange(threeSameSuit);
 		
 		assertEquals(1, AIP.removeIndex.get(0).intValue());
 		assertEquals(3, AIP.removeIndex.get(1).intValue());
