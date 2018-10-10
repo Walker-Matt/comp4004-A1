@@ -34,10 +34,50 @@ public class AIP {
 					discard.add(hand.get(index));
 				}
 				return hand;
+			} else if(threeCardSequence(hand)) {
+				for(int i=removeIndex.size()-1; i>=0; i--) {
+					int index = removeIndex.get(i);
+					discard.add(hand.get(index));
+				}
+				return hand;
 			}
 		}
 		return hand;
 	}
+ 	
+ 	public static boolean threeCardSequence(List<Card> hand) {
+ 		Card previous = hand.get(0);
+ 		int count = 1;
+ 		for(int i=1; i<hand.size(); i++) {
+ 			if(previous.getOrder() == hand.get(i).getOrder()-1) {
+ 				previous = hand.get(i);
+ 				count++;
+ 			} else {
+ 				previous = hand.get(i);
+ 				count = 1;
+ 			}
+ 			if(count == 3) {
+ 				if(i == 4) {
+ 					removeIndex.add(0);
+ 					removeIndex.add(1);
+ 				} else {
+	 				if(previous.getOrder() != hand.get(i).getOrder()-2) {
+	 					if(i == 2) {
+	 						removeIndex.add(3);
+	 						removeIndex.add(4);
+	 					} else if(i == 3) {
+	 						removeIndex.add(0);
+	 						removeIndex.add(4);
+	 					}
+	 					return true;
+	 				}
+	 				return true;
+ 				}
+ 			}
+ 		}
+ 		
+ 		return false;
+ 	}
  	
  	public static boolean threeSameRank(List<Card> hand) {
  		for(Card r : hand) {
