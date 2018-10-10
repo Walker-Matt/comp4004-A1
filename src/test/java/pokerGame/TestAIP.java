@@ -51,4 +51,17 @@ public class TestAIP extends TestCase {
 		assertTrue(AIP.oneAway(straightFlush));
 		assertEquals(1, AIP.removeIndex.get(0).intValue());
 	}
+	
+	//tests if has three cards of the same suit
+	public void testAIPThreeCardsSameSuit() {
+		List<Card> threeSameSuit = new ArrayList<Card>();
+		threeSameSuit.add(new Card("H", "4"));
+		threeSameSuit.add(new Card("D", "6"));
+		threeSameSuit.add(new Card("H", "2"));
+		threeSameSuit.add(new Card("C", "3"));
+		threeSameSuit.add(new Card("H", "9"));
+		
+		assertEquals(1, AIP.removeIndex.get(0).intValue());
+		assertEquals(3, AIP.removeIndex.get(1).intValue());
+	}
 }
