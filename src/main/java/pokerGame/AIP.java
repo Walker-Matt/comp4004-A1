@@ -43,10 +43,24 @@ public class AIP {
 					discard.add(hand.get(index));
 				}
 				return hand;
+			} else {
+				twoHighest(hand);
+				for(int i=removeIndex.size()-1; i>=0; i--) {
+					int index = removeIndex.get(i);
+					discard.add(hand.get(index));
+				}
+				return hand;
 			}
 		}
 		return hand;
 	}
+ 	
+ 	public static boolean twoHighest(List<Card> hand) {
+ 		removeIndex.add(0);
+ 		removeIndex.add(1);
+ 		removeIndex.add(2);
+ 		return true;
+ 	}
  	
  	public static boolean onePair(List<Card> hand) {
  		int pairs = 0;
