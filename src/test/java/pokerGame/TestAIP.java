@@ -52,7 +52,7 @@ public class TestAIP extends TestCase {
 		assertEquals(1, AIP.removeIndex.get(0).intValue());
 	}
 	
-	//tests if has three cards of the same suit
+	//tests for three cards of the same suit
 	public void testAIPThreeCardsSameSuit() {
 		List<Card> threeSameSuit = new ArrayList<Card>();
 		threeSameSuit.add(new Card("H", "4"));
@@ -67,7 +67,7 @@ public class TestAIP extends TestCase {
 		assertEquals(3, AIP.removeIndex.get(1).intValue());
 	}
 	
-	//tests if has three cards of the same rank
+	//tests for three cards of the same rank
 	public void testAIPThreeCardsSameRank() {
 		List<Card> ThreeOfAKind = new ArrayList<Card>();
 		ThreeOfAKind.add(new Card("S", "4"));
@@ -77,6 +77,21 @@ public class TestAIP extends TestCase {
 		ThreeOfAKind.add(new Card("S", "3"));
 		
 		AIP.exchange(ThreeOfAKind);
+		
+		assertEquals(0, AIP.removeIndex.get(0).intValue());
+		assertEquals(4, AIP.removeIndex.get(1).intValue());
+	}
+	
+	//tests for three cards in sequence
+	public void testAIPThreeCardSequence() {
+		List<Card> threeCardSequence = new ArrayList<Card>();
+		threeCardSequence.add(new Card("S", "9"));
+		threeCardSequence.add(new Card("H", "5"));
+		threeCardSequence.add(new Card("C", "6"));
+		threeCardSequence.add(new Card("D", "7"));
+		threeCardSequence.add(new Card("S", "3"));
+		
+		AIP.exchange(threeCardSequence);
 		
 		assertEquals(0, AIP.removeIndex.get(0).intValue());
 		assertEquals(4, AIP.removeIndex.get(1).intValue());
