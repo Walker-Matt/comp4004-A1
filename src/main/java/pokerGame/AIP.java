@@ -37,10 +37,47 @@ public class AIP {
 				int index = removeIndex.get(0);
 				discard.add(hand.get(index));
 				return hand;
+			} else if(onePair(hand)) {
+				for(int i=removeIndex.size()-1; i>=0; i--) {
+					int index = removeIndex.get(i);
+					discard.add(hand.get(index));
+				}
+				return hand;
 			}
 		}
 		return hand;
 	}
+ 	
+ 	public static boolean onePair(List<Card> hand) {
+ 		int pairs = 0;
+ 		String pair = "";
+ 		for(int i=0; i<hand.size(); i++) {
+ 			int count = 1;
+ 			for(int j=i; j<hand.size(); j++) {
+ 				if(i != j) {
+ 					if(hand.get(i).getRank().equals(hand.get(j).getRank())) {
+ 						count++;
+ 					}
+ 				}
+ 			}
+ 			if(count > 2) {
+ 				return false;
+ 			} else if(count == 2) {
+ 				pairs++;
+ 				pair = hand.get(i).getRank();
+ 			}
+ 		}
+ 		if(pairs == 1) {
+ 			for(int i=0; i<hand.size(); i++) {
+ 				if(!hand.get(i).getRank().equals(pair)) {
+ 					removeIndex.add(i);
+ 				}
+ 			}
+ 			return true;
+ 		} else {
+ 			return false;
+ 		}
+ 	}
  	
  	public static boolean twoPairs(List<Card> hand) {
  		int pairs = 0;
@@ -75,7 +112,6 @@ public class AIP {
  				}
  			}
  		}
- 		
  		return false;
  	}
  	
