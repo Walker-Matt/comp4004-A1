@@ -69,4 +69,22 @@ public class TestAIP extends TestCase {
 		assertEquals(1, AIP.removeIndex.get(0).intValue());
 		assertEquals(3, AIP.removeIndex.get(1).intValue());
 	}
+	
+	//tests if has three cards of the same rank
+	public void testAIPThreeCardsSameRank() {
+		String[] args = new String[0];
+		Game.main(args);
+		
+		List<Card> ThreeOfAKind = new ArrayList<Card>();
+		ThreeOfAKind.add(new Card("S", "4"));
+		ThreeOfAKind.add(new Card("H", "4"));
+		ThreeOfAKind.add(new Card("C", "4"));
+		ThreeOfAKind.add(new Card("D", "7"));
+		ThreeOfAKind.add(new Card("S", "3"));
+		
+		AIP.exchange(ThreeOfAKind);
+		
+		assertEquals(3, AIP.removeIndex.get(0).intValue());
+		assertEquals(4, AIP.removeIndex.get(1).intValue());
+	}
 }
