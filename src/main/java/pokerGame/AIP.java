@@ -18,15 +18,17 @@ public class AIP {
  	public static List<Card> exchange(List<Card> hand) {
 		if(Hands.type(hand) < 5) {
 			if(oneAway(hand)) {
-				discard.add(hand.get(removeIndex.get(0)));
-				hand.remove(removeIndex.get(0).intValue());
+				int index = removeIndex.get(0);
+				discard.add(hand.get(index));
+				hand.remove(index);
 				drawn = Game.gameDeck.draw(1);
 				hand.addAll(drawn);
 				return hand;
 			} else if(threeSameSuit(hand)) {
-				for(int i=0; i<removeIndex.size(); i++) {
-					discard.add(hand.get(removeIndex.get(i)));
-					hand.remove(removeIndex.get(i).intValue());
+				for(int i=removeIndex.size()-1; i>=0; i--) {
+					int index = removeIndex.get(i);
+					discard.add(hand.get(index));
+					hand.remove(index);
 				}
 				drawn = Game.gameDeck.draw(2);
 				hand.addAll(drawn);

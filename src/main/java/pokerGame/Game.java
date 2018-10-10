@@ -9,11 +9,13 @@ public class Game {
 	static List<Card> AIPcards;
 	static String cardsToBeatDisplay;
 	static String AIPcardsDisplay;
+	static String AIPExchangeDisplay;
 	static String handsDisplay;
 	static String winnerDisplay;
 	
 	public static void main(String args[]) {
 		games = ReadFile.read("cards/full_deck.txt");
+		games.get(0).shuffle();           //REMOVE FOR DEMO!!!
 		for(int i=1; i<games.size()+1; i++) {
 			System.out.print("Game number " + i + ":\n");
 			run(games.get(i-1));
@@ -30,10 +32,6 @@ public class Game {
 		AIPcards = new ArrayList<Card>();
 		AIPcards.addAll(gameDeck.draw(5));
 		
-		winnerDisplay = getWinner() + "\n";
-		
-		handsDisplay = getHandsDisplay() + "\n";
-		
 		cardsToBeatDisplay = "Cards to beat: " + 
 				cardsToBeat.get(0).toString() + " " + 
 				cardsToBeat.get(1).toString() + " " + 
@@ -48,7 +46,33 @@ public class Game {
 				AIPcards.get(3).toString() + " " +
 				AIPcards.get(4).toString() + "\n";
 		
+		AIP.exchange(AIPcards);
+		
+		AIPExchangeDisplay = getAIPExchangeDisplay() + "\n";
+		
+		handsDisplay = getHandsDisplay() + "\n";
+		
+		winnerDisplay = getWinner() + "\n";
+		
 		display();
+	}
+	
+	public static String getAIPExchangeDisplay() {
+		if(AIP.discard.size() == 0) {
+			return "AIP exchanges nothing.";
+		} else {
+			String discard = "";
+			for(Card c : AIP.discard) {
+				discard = discard + " " + c.toString();
+			}
+			String drawn = "";
+			for(Card c : AIP.drawn) {
+				drawn = drawn + " " + c.toString();
+			}
+			
+			return "AIP exchanges:" + 
+				discard + " for" + drawn;
+		}
 	}
 	
 	public static String getHandsDisplay() {
@@ -96,6 +120,7 @@ public class Game {
 	public static void display() {
 		System.out.print(cardsToBeatDisplay);
 		System.out.print(AIPcardsDisplay);
+		System.out.print(AIPExchangeDisplay);
 		System.out.print(handsDisplay);
 		System.out.print(winnerDisplay);
 	}
