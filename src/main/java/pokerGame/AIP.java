@@ -6,13 +6,6 @@ public class AIP {
 	static List<Card> discard;
 	static List<Integer> removeIndex;
 	
-	private static class SortByOrder implements Comparator<Card> {
-		//used to sort by Cards order (Aces high)
-		public int compare(Card a, Card b) {
-			return a.order - b.order;
-		}
-	}
-	
 	//implements simple strategy for exchanging cards
  	public static List<Card> exchange(List<Card> hand) {
  		discard = new ArrayList<Card>();
@@ -40,10 +33,51 @@ public class AIP {
 					discard.add(hand.get(index));
 				}
 				return hand;
+			} else if(twoPairs(hand)) {
+				int index = removeIndex.get(0);
+				discard.add(hand.get(index));
+				return hand;
 			}
 		}
 		return hand;
 	}
+ 	
+ 	public static boolean twoPairs(List<Card> hand) {
+ 		int pairs = 0;
+ 		String pair1 = "";
+ 		String pair2 = "";
+ 		for(int i=0; i<hand.size(); i++) {
+ 			int count = 1;
+ 			for(int j=i; j<hand.size(); j++) {
+ 				if(i != j) {
+ 					if(hand.get(i).getRank().equals(hand.get(j).getRank())) {
+ 						count++;
+ 					}
+ 				}
+ 			}
+ 			if(count > 2) {
+ 				return false;
+ 			} else if(count == 2) {
+ 				pairs++;
+ 				if(pair1.equals("")) {
+ 					pair1 = hand.get(i).getRank();
+ 				} else {
+ 					pair2 = hand.get(i).getRank();
+ 				}
+ 			}
+ 		}
+ 		if(pairs == 2) {
+ 			for(int i=0; i<hand.size(); i++) {
+ 				if(!hand.get(i).getRank().equals(pair1) ||
+ 				   !hand.get(i).getRank().equals(pair2)) {
+ 					removeIndex.add(i);
+ 					return true;
+ 				}
+ 			}
+ 		}
+ 		
+ 		return false;
+ 	}
  	
  	public static boolean threeCardSequence(List<Card> hand) {
  		Card previous = hand.get(0);
@@ -223,7 +257,6 @@ public class AIP {
  	
  	//returns true if one away from a straight flush
  	public static boolean almostStraightFlush(List<Card> hand) {
- 		Collections.sort(hand, new SortByOrder());
  		int count = 0;
  		int index = 0;
  		if(hand.get(0).getOrder() != hand.get(1).getOrder()-1 &&
